@@ -339,7 +339,7 @@
 											"top": 239,
 											"width": 79.68212890625,
 											"height": 39,
-											"text": "Show the pharmacist's homepage",
+											"text": "Show the pharmacy homepage",
 											"wordWrap": true
 										},
 										{
@@ -4270,7 +4270,7 @@
 											"top": 463,
 											"width": 51.30810546875,
 											"height": 52,
-											"text": "Retrieve ended event's list",
+											"text": "Retrieve ended events list",
 											"wordWrap": true
 										},
 										{
@@ -4577,7 +4577,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF6dxLq54FoDt0="
 					},
-					"name": "Show the pharmacist's homepage"
+					"name": "Show the pharmacy homepage"
 				},
 				{
 					"_type": "UMLAction",
@@ -4851,7 +4851,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF6dxLq54FoDt0="
 					},
-					"name": "Retrieve ended event's list"
+					"name": "Retrieve ended events list"
 				}
 			],
 			"edges": [
