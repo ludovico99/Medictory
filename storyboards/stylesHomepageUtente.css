@@ -1,0 +1,30 @@
+.e16_2 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:1440px;
+	height:1024px;
+	position:absolute;
+overflow:hidden;
+}.e16_3 { 
+	width:1440px;
+	height:1024px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	background-image:url(images/image_3.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}.e16_4 { 
+	position: absolute;width: 447px;height: 54px;left: 590px;top: 416px;font-family: Major Mono Display;font-style: normal;font-weight: normal;font-size: 55px;line-height: 55px;color: #FFFFFF;
+}.e16_5 { 
+	position: absolute;width: 373px;height: 43px;left: 640px;top: 483px;font-family: Montserrat;font-style: normal;font-weight: 500;font-size: 30px;line-height: 37px;color: #FFFFFF;
+}.e16_6 { 
+	position: absolute;width: 373px;height: 43px;left: 480px;top: 142px;font-family: Montserrat;font-style: normal;font-weight: 500;font-size: 40px;line-height: 49px;color: #FFFFFF;text-decoration: none;
+}.e16_7 { 
+	position: absolute;width: 214px;height: 89px;left: 480px;top: 766px;font-family: Montserrat;font-style: normal;font-weight: 500;font-size: 38px;line-height: 46px;color: #FFFFFF;text-decoration: none;
+}.e16_8 { 
+	position: absolute;width: 373px;height: 43px;left: 860px;top: 150px;font-family: Montserrat;font-style: normal;font-weight: 500;font-size: 40px;line-height: 49px;color: #FFFFFF;text-decoration: none;
+}.e16_9 { 
+	position: absolute;width: 373px;height: 43px;left: 1080px;top: 466px;font-family: Montserrat;font-style: normal;font-weight: 500;font-size: 40px;line-height: 49px;color: #FFFFFF;text-decoration: none;
+}.e16_10 { 
+	position: absolute;width: 373px;height: 43px;left: 870px;top: 772px;font-family: Montserrat;font-style: normal;font-weight: 500;font-size: 40px;line-height: 49px;color: #FFFFFF;text-decoration: none;
+}
