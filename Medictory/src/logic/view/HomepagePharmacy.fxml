@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: #00000090;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcPharmacyHomepage">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../altro/home2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="33.0" layoutX="358.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/recycle.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="37.0" layoutX="209.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/recycling-truck.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="431.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/drugs.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <Label layoutX="210.0" layoutY="285.0" text="Ritiro" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="346.0" layoutY="283.0" prefHeight="18.0" prefWidth="52.0" text="Verifica" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="425.0" layoutY="159.0" text="Risorse" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="359.0" layoutY="38.0" text="Eventi" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="226.0" layoutY="146.0" prefHeight="77.0" prefWidth="163.0" text="M E D I C T O R Y" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="256.0" layoutY="199.0" text="pharmacy account" textFill="WHITE" />
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="361.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/podium.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="205.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/users-icon.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <Button fx:id="ritiro" layoutX="184.0" layoutY="274.0" mnemonicParsing="false" onAction="#ritiroPressed" prefHeight="89.0" prefWidth="85.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova Light" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="gestione" layoutX="322.0" layoutY="278.0" mnemonicParsing="false" onAction="#gestionePressed" prefHeight="77.0" prefWidth="98.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova Light" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="account" alignment="CENTER" layoutX="179.0" layoutY="25.0" mnemonicParsing="false" onAction="#accountPressed" prefHeight="89.0" prefWidth="85.0" style="-fx-background-color: #00000000;" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova Light" size="11.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="eventi" alignment="CENTER" layoutX="338.0" layoutY="32.0" mnemonicParsing="false" onAction="#eventiPressed" prefHeight="89.0" prefWidth="85.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova Light" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="risorse" layoutX="399.0" layoutY="159.0" mnemonicParsing="false" onAction="#risorsePressed" prefHeight="77.0" prefWidth="98.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova Light" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="195.0" layoutY="39.0" text="Account" textFill="WHITE">
+         <font>
+            <Font name="Arial Nova" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

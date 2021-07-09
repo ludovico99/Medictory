@@ -1,0 +1,40 @@
+.myroot{
+	
+	-fx-font-family: "Goudy Bookletter 1911", sans-serif;
+	-fx-font-size: 20pt;
+	-fx-text-fill: #FFFFFF;
+	-fx-font-weight: bold;
+	-fx-spacing: 20;
+}
+.myHeader{
+	-fx-background-color: linear-gradient(#20b2aa, #4682b4);
+	-fx-font-family: "Goudy Bookletter 1911", sans-serif;
+	-fx-background-insets: 00,80,70,70;
+	-fx-font-size: 50pt;
+	-fx-text-fill: #FFFFFF;
+	-fx-font-weight: bold;
+	-fx-alignment:center;
+}
+.mygrid {
+	-fx-hgap: 10;
+	-fx-vgap: 10;
+	-fx-alignment: center;
+	
+	-fx-font-family: "Goudy Bookletter 1911", sans-serif;
+	-fx-font-size: 10pt;
+	-fx-padding: 25,25,25,25;
+}
+.mylabel{
+	-fx-font-family: "Goudy Bookletter 1911", sans-serif;
+	-fx-font-size: 10pt;
+	-fx-text-fill: #FFFFFF 100%;
+	-fx-font-weight: bold;
+}
+.myHbox{
+	-fx-spacing: 50px;
+	-fx-padding: 50,50,50,50;
+	-fx-alignment:center;
+}
+.myButton{
+	
+}

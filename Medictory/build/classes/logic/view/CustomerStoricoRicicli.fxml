@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcCustomerRiciclaggio">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/photo-1585830812416-a6c86bb14576.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="-156.0" layoutY="-56.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="116.0" style="-fx-background-color: #00000000;">
+               <children>
+                  <Pane opacity="0.0" prefHeight="86.0" prefWidth="110.0" />
+                  <Button fx:id="risorse2" mnemonicParsing="false" onAction="#risorse2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Risorse" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="RiciclaggioBb1" mnemonicParsing="false" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: #00000020;" text="Riciclaggio" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Arial Nova" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="eventi2" mnemonicParsing="false" onAction="#eventi2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Eventi" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="account2" mnemonicParsing="false" onAction="#account2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Account" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="home2" mnemonicParsing="false" onAction="#home2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="400.0" prefWidth="489.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="76.0" prefWidth="233.0" text="Riciclaggio" textFill="#45435b">
+                     <font>
+                        <Font name="Arial Nova" size="39.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="56.0" prefWidth="487.0" style="-fx-padding: 10; -fx-spacing: 10;">
+                     <children>
+                        <Button fx:id="ricicla2" mnemonicParsing="false" onAction="#ricicla2Pressed" prefHeight="25.0" prefWidth="169.0" text="Ricicla i tuoi articoli">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Arial Nova" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="storico" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Storico Ricicli" underline="true">
+                           <font>
+                              <Font name="Arial Nova Bold" size="12.0" />
+                           </font></Button>
+                        <Pane prefHeight="36.0" prefWidth="167.0">
+                           <children>
+                              <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="125.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../altro/refreshBlue.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="refresh" layoutX="125.0" layoutY="2.0" mnemonicParsing="false" onAction="#refreshPressed" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #00000000;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="294.0" prefWidth="487.0">
+                     <children>
+                        <TableView fx:id="storicotb" layoutX="12.0" layoutY="9.0" prefHeight="246.0" prefWidth="454.0">
+                          <columns>
+                            <TableColumn fx:id="storicoCol1" prefWidth="151.0" text="Farmaco" />
+                            <TableColumn fx:id="storicoCol2" prefWidth="197.0" text="Descrizione" />
+                              <TableColumn fx:id="storicoCol3" prefWidth="105.0" text="Verifica" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

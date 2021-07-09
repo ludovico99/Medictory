@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcPharmacyAccount">
+   <children>
+      <ImageView fitHeight="401.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../altro/photo-1585830812416-a6c86bb14576.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur radius="0.0" />
+         </effect>
+      </ImageView>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="137.0" style="-fx-background-color: #FFFFFF50;">
+               <effect>
+                  <ColorAdjust brightness="0.24" contrast="-0.02" saturation="-0.29" />
+               </effect>
+               <children>
+                  <Pane prefHeight="160.0" prefWidth="137.0">
+                     <children>
+                        <Button layoutX="15.0" layoutY="29.0" mnemonicParsing="false" prefHeight="104.0" prefWidth="108.0" style="-fx-background-radius: 100; -fx-background-color: #00000000; -fx-border-color: #FFFFFF; -fx-border-radius: 100; -fx-border-width: 3;" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="88.0" prefHeight="31.0" prefWidth="102.0" text="clienti" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Nova Light" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="countBis" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" prefHeight="38.0" prefWidth="102.0" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Nova Light" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <Pane layoutX="137.0" layoutY="121.0" prefHeight="278.0" prefWidth="463.0">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="463.0" style="-fx-spacing: 20; -fx-padding: 20;">
+                     <children>
+                        <Button fx:id="dati" mnemonicParsing="false" onAction="#datiPressed" prefHeight="23.0" prefWidth="94.0" style="-fx-background-color: #FFFFFF50;" text="Dati Aziendali" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Nova" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF50;" text="Tutti i clienti" textFill="WHITE" underline="true">
+                           <font>
+                              <Font name="Arial Nova Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="clientiTb" layoutX="20.0" layoutY="56.0" prefHeight="143.0" prefWidth="425.0">
+                    <columns>
+                      <TableColumn fx:id="usernameCol" prefWidth="101.0" text="Username" />
+                        <TableColumn fx:id="emailCol" prefWidth="141.0" text="Email" />
+                        <TableColumn fx:id="livelloCol" prefWidth="94.0" text="Livello" />
+                      <TableColumn fx:id="puntiCol" prefWidth="88.0" text="Punti" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="logout" layoutX="363.0" layoutY="235.0" mnemonicParsing="false" onAction="#logoutPressed" prefHeight="23.0" prefWidth="86.0" style="-fx-background-color: #FFFFFF00;" text="Log - out" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Bold Italic" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Line endX="289.0" layoutX="80.0" layoutY="246.0" startX="-37.0" stroke="WHITE" />
+               </children>
+            </Pane>
+            <Polyline fill="WHITE" layoutX="595.0" layoutY="-13.0" points="-42.0, 43.0, -30.0, 27.0, -17.0, 43.0, -23.0, 43.0" stroke="WHITE" strokeType="INSIDE" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="16.0" layoutX="557.0" layoutY="23.0" stroke="WHITE" strokeType="INSIDE" width="16.0" />
+            <Button fx:id="home" layoutX="547.0" layoutY="16.0" mnemonicParsing="false" onAction="#homePressed" prefHeight="23.0" prefWidth="34.0" style="-fx-background-color: #00000000;" textFill="#197778">
+               <font>
+                  <Font name="Arial Nova Light" size="11.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="132.0" fitWidth="259.0" layoutX="157.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/account.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

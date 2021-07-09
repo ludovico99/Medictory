@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: #00000099;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcPharmacyEvent">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/photo-1585830812416-a6c86bb14576.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="-156.0" layoutY="-56.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="116.0" style="-fx-background-color: #00000000;">
+               <children>
+                  <Pane opacity="0.0" prefHeight="86.0" prefWidth="110.0" />
+                  <Button fx:id="risorseBb" mnemonicParsing="false" prefHeight="39.0" prefWidth="121.0" style="-fx-background-color: #00000020;" text="Eventi" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Arial Nova" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="gestione2" mnemonicParsing="false" onAction="#gestione2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Verifica" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="ritiro2" mnemonicParsing="false" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Ritiro" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="risorse2" mnemonicParsing="false" onAction="#risorse2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Risorse" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="account2" mnemonicParsing="false" onAction="#account2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Account" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="home2" mnemonicParsing="false" onAction="#home2Pressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="379.0" prefWidth="487.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="70.0" prefWidth="152.0" text="Eventi" textFill="#45435b">
+                     <font>
+                        <Font name="Arial Nova" size="39.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="41.0" prefWidth="487.0" style="-fx-spacing: 10; -fx-padding: 15;">
+                     <children>
+                        <Button fx:id="creaEvento" mnemonicParsing="false" onAction="#creaPressed" text="Crea Evento">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Arial Nova" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" text="Eventi Attivi" underline="true">
+                           <font>
+                              <Font name="Arial Nova Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="eventiTb" prefHeight="200.0" prefWidth="450.0">
+                    <columns>
+                      <TableColumn fx:id="eventoCol" prefWidth="75.0" text="Evento" />
+                        <TableColumn fx:id="descrizioneCol" prefWidth="98.0" text="Descrizione" />
+                        <TableColumn fx:id="requisitiCol" prefWidth="75.0" text="Requisiti" />
+                        <TableColumn fx:id="premioCol" prefWidth="71.0" text="Premio" />
+                        <TableColumn fx:id="inizioCol" prefWidth="81.0" text="Inizio" />
+                        <TableColumn fx:id="fineCol" prefWidth="85.0" text="Fine" />
+                    </columns>
+                  </TableView>
+                  <HBox prefHeight="50.0" prefWidth="487.0" style="-fx-spacing: 5; -fx-padding: 20;">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="199.0" text="Cancella Evento">
+                           <font>
+                              <Font name="Arial Nova" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="eliminaTf" prefHeight="25.0" prefWidth="181.0" promptText="inserisci evento da eliminare" />
+                        <Button fx:id="elimina" mnemonicParsing="false" onAction="#deletePressed" text="Elimina">
+                           <font>
+                              <Font name="Arial Nova" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

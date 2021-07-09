@@ -1,0 +1,39 @@
+.myHeader{
+	-fx-background-image: url("altro/6860985-blurry-wallpaper.jpg");
+}
+
+
+
+
+
+
+.myroot{
+	-fx-background-image: url("altro/6860985-blurry-wallpaper.jpg");
+	-fx-font-family: "Goudy Bookletter 1911", sans-serif;
+	-fx-font-size: 20pt;
+	-fx-text-fill: #FFFFFF 100%;
+	-fx-font-weight: bold;
+}
+.mygrid {
+	-fx-hgap: 10;
+	-fx-vgap: 10;
+	-fx-alignment: center;
+	
+	-fx-font-family: "Goudy Bookletter 1911", sans-serif;
+	-fx-font-size: 10pt;
+	-fx-padding: 25,25,25,25;
+}
+.mylabel{
+	-fx-background-image: url("altro/6860985-blurry-wallpaper.jpg");
+	-fx-font-family: "Goudy Bookletter 1911", sans-serif;
+	-fx-font-size: 10pt;
+	-fx-text-fill: #FFFFFF 100%;
+	-fx-font-weight: bold;
+}
+.myHbox{
+	-fx-spacing: 50px;
+	-fx-padding: 50,50,50,50;
+}
+.myButton{
+	
+}

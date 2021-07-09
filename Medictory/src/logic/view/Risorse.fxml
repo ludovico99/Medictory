@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcCustomerRisorse">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../altro/photo-1585830812416-a6c86bb14576.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="-156.0" layoutY="-56.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="114.0" style="-fx-background-color: #00000000;">
+               <children>
+                  <Pane opacity="0.0" prefHeight="86.0" prefWidth="110.0" />
+                  <Button fx:id="risorseBb" mnemonicParsing="false" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: #00000020;" text="Risorse" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Arial Nova" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="riciclaggio" mnemonicParsing="false" onAction="#riciclaggioPressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Riciclaggio" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="eventi" mnemonicParsing="false" onAction="#eventiPressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Eventi" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="account" mnemonicParsing="false" onAction="#accountPressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Account" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="home" mnemonicParsing="false" onAction="#homePressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Nova Light" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="400.0" prefWidth="489.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="102.0" prefWidth="152.0" text="Risorse" textFill="#45435b">
+                     <font>
+                        <Font name="Arial Nova" size="39.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="risorsetb" prefHeight="236.0" prefWidth="488.0">
+                    <columns>
+                        <TableColumn fx:id="risorseCol1" prefWidth="129.0" text="Farmaco" />
+                        <TableColumn fx:id="risorseCol2" prefWidth="141.0" text="Descrizione" />
+                        <TableColumn fx:id="risorseCol3" prefWidth="82.0" text="Quantitativo" />
+                        <TableColumn fx:id="risorseCol4" minWidth="8.0" prefWidth="135.0" text="Scadenza" />
+                    </columns>
+                  </TableView>
+                  <VBox prefHeight="71.0" prefWidth="488.0" style="-fx-padding: 10; -fx-spacing: 5;">
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="488.0">
+                           <children>
+                              <TextField fx:id="farmaco" prefHeight="25.0" prefWidth="102.0" promptText="Farmaco">
+                                 <font>
+                                    <Font name="Arial Nova" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="descrizione" prefHeight="25.0" prefWidth="99.0" promptText="Descrizione">
+                                 <font>
+                                    <Font name="Arial Nova" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="quantitativo" prefHeight="25.0" prefWidth="108.0" promptText="Quantità">
+                                 <font>
+                                    <Font name="Arial Nova" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <DatePicker fx:id="scad" prefHeight="25.0" prefWidth="105.0" promptText="Scadenza" />
+                              <Button fx:id="submit" mnemonicParsing="false" onAction="#submitPressed" prefHeight="25.0" prefWidth="57.0" text="Submit">
+                                 <font>
+                                    <Font name="Arial Nova" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="39.0" prefWidth="488.0">
+                           <children>
+                              <TextField fx:id="richiesta" prefHeight="23.0" prefWidth="411.0" promptText="Immetti un farmaco e cerca la sua disponibilità in farmacia">
+                                 <font>
+                                    <Font name="Arial Nova" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="search" mnemonicParsing="false" onAction="#searchPressed" prefHeight="23.0" prefWidth="56.0" text="Search">
+                                 <font>
+                                    <Font name="Arial Nova" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
