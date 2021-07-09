@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="Medictory">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/java-2020-09/eclipse/"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="14"/>
+    <property name="source" value="14"/>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="javaFX.userclasspath">
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx.base.jar"/>
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx.controls.jar"/>
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx.fxml.jar"/>
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx.graphics.jar"/>
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx.media.jar"/>
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx.swing.jar"/>
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx.web.jar"/>
+        <pathelement location="../../../../Program Files/javafx-sdk-15.0.1/lib/javafx-swt.jar"/>
+    </path>
+    <path id="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath">
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/annotations-api.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/catalina-ant.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/catalina-ha.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/catalina-ssi.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/catalina-storeconfig.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/catalina-tribes.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/catalina.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/ecj-4.17.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/el-api.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/jasper-el.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/jasper.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/jaspic-api.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/jsp-api.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/servlet-api.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-api.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-coyote.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-dbcp.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-cs.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-de.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-fr.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-ja.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-ko.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-pt-BR.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-ru.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-i18n-zh-CN.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-jdbc.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-jni.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-util-scan.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-util.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/tomcat-websocket.jar"/>
+        <pathelement location="../../apache-tomcat-9.0.40-windows-x64/apache-tomcat-9.0.40/lib/websocket-api.jar"/>
+    </path>
+    <path id="Web App Libraries.libraryclasspath">
+        <pathelement location="WebContent/WEB-INF/lib/activation-2.2.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.mail.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-8.0.22.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-8.0.23.jar"/>
+    </path>
+    <path id="JUnit 5.libraryclasspath">
+        <pathelement location="../../.p2/pool/plugins/org.junit.jupiter.api_5.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.jupiter.engine_5.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.jupiter.migrationsupport_5.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.jupiter.params_5.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.platform.commons_1.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.platform.engine_1.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.platform.launcher_1.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.platform.runner_1.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.platform.suite.api_1.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit.vintage.engine_5.6.0.v20200203-2009.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.opentest4j_1.2.0.v20190826-0900.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.apiguardian_1.1.0.v20190826-0900.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit_4.13.0.v20200204-1500.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
+    </path>
+    <path id="Medictory.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.LoginView (1).classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.LoginView (2).classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.Medictory (1).classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.SeleniumTest1.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.SeleniumTest2.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.SeleniumTest3.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.SeleniumTest3.medictoryTest3.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.TestControllerCustomerAppuntamento.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.TestControllerCustomerEvents.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.TestControllerCustomerRiciclaggio.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.TestControllerLogin.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.TestControllerPharmacyEvent.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.TestEventoDAO.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <path id="run.TestFarmacoClienteDAO.classpath">
+        <path refid="Medictory.classpath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="javaFX.userclasspath"/>
+        <pathelement location="../../Downloads/javax.mail.jar"/>
+        <pathelement location="../../Downloads/activation-2.2.1.jar/activation-2.2.1.jar"/>
+        <pathelement location="../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.22.jar"/>
+        <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0 (2)].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="JUnit 5.libraryclasspath"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+        <pathelement location="../../selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="Medictory.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="LoginView (1)">
+        <java classname="view.LoginView" failonerror="true" fork="yes">
+            <jvmarg line="--module-path &quot;C:\Program Files\javafx-sdk-15.0.1\lib&quot; --add-modules &#13;&#10;javafx.controls,javafx.fxml"/>
+            <classpath refid="run.LoginView (1).classpath"/>
+        </java>
+    </target>
+    <target name="LoginView (2)">
+        <java classname="logic.view.LoginView" failonerror="true" fork="yes">
+            <jvmarg line="--module-path &quot;C:\Program Files\javafx-sdk-15.0.1\lib&quot; --add-modules &#13;&#10;javafx.controls,javafx.fxml"/>
+            <classpath refid="run.LoginView (2).classpath"/>
+        </java>
+    </target>
+    <target name="Medictory (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.SeleniumTest1" todir="${junit.output.dir}"/>
+            <test name="test.SeleniumTest2" todir="${junit.output.dir}"/>
+            <test name="test.SeleniumTest3" todir="${junit.output.dir}"/>
+            <test name="test.TestControllerCustomerAppuntamento" todir="${junit.output.dir}"/>
+            <test name="test.TestControllerCustomerEvents" todir="${junit.output.dir}"/>
+            <test name="test.TestControllerCustomerRiciclaggio" todir="${junit.output.dir}"/>
+            <test name="test.TestControllerLogin" todir="${junit.output.dir}"/>
+            <test name="test.TestControllerPharmacyEvent" todir="${junit.output.dir}"/>
+            <test name="test.TestEventoDAO" todir="${junit.output.dir}"/>
+            <test name="test.TestFarmacoClienteDAO" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.Medictory (1).classpath"/>
+        </junit>
+    </target>
+    <target name="SeleniumTest1">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.SeleniumTest1" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.SeleniumTest1.classpath"/>
+        </junit>
+    </target>
+    <target name="SeleniumTest2">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.SeleniumTest2" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.SeleniumTest2.classpath"/>
+        </junit>
+    </target>
+    <target name="SeleniumTest3">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.SeleniumTest3" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.SeleniumTest3.classpath"/>
+        </junit>
+    </target>
+    <target name="SeleniumTest3.medictoryTest3">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.SeleniumTest3" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.SeleniumTest3.medictoryTest3.classpath"/>
+        </junit>
+    </target>
+    <target name="TestControllerCustomerAppuntamento">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestControllerCustomerAppuntamento" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestControllerCustomerAppuntamento.classpath"/>
+        </junit>
+    </target>
+    <target name="TestControllerCustomerEvents">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestControllerCustomerEvents" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestControllerCustomerEvents.classpath"/>
+        </junit>
+    </target>
+    <target name="TestControllerCustomerRiciclaggio">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestControllerCustomerRiciclaggio" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestControllerCustomerRiciclaggio.classpath"/>
+        </junit>
+    </target>
+    <target name="TestControllerLogin">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestControllerLogin" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestControllerLogin.classpath"/>
+        </junit>
+    </target>
+    <target name="TestControllerPharmacyEvent">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestControllerPharmacyEvent" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestControllerPharmacyEvent.classpath"/>
+        </junit>
+    </target>
+    <target name="TestEventoDAO">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestEventoDAO" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestEventoDAO.classpath"/>
+        </junit>
+    </target>
+    <target name="TestFarmacoClienteDAO">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestFarmacoClienteDAO" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestFarmacoClienteDAO.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
