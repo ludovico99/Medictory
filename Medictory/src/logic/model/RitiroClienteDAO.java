@@ -18,7 +18,7 @@ public class RitiroClienteDAO {
 	
 	
 	public static RitiroCliente creaRitiro(String nome, String citta, String indirizzo, String d, String farmacia, String email) {
-		Statement stmt = null;
+		Statement stmtRitiro = null;
 		Connection conn= connector.getConnection();
 		 
         
@@ -27,26 +27,23 @@ public class RitiroClienteDAO {
         	
             String sql = "INSERT INTO `Ritiro` (`nome`, `citta`, `indirizzo`, `data`, `farmacia`, `email`) VALUES ('"+ nome + "', '" + citta + "','" + indirizzo + "', '" + d + "','" + farmacia + "','" + email + "');" ;
            
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stmtRitiro = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             
             
-            stmt.executeUpdate(sql);
+            stmtRitiro.executeUpdate(sql);
             
             
-            stmt.close();
+            stmtRitiro.close();
             
             conn.close();
-        } catch (SQLException se) {
-            // Errore durante l'apertura della connessione
-            se.printStackTrace();
-        } catch (Exception e) {
+        } catch (Exception excRitiro) {
             // Errore nel loading del driver
-            e.printStackTrace();
+        	excRitiro.printStackTrace();
         } finally {
-        	List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+        	List<Statement> statementsRitiro = new ArrayList<>();
+        	statementsRitiro.add(stmtRitiro);
 
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeConnections(conn, statementsRitiro);
         }
         return null;
 	}
@@ -55,46 +52,42 @@ public class RitiroClienteDAO {
 		
 	 List<RitiroCliente> ritiri = null;
 		
-		Statement stmt = null;
+		Statement stmtRetreat = null;
 		Connection conn= connector.getConnection();
      
         
         try {
         	
         	String sql = "SELECT `citta`, `indirizzo`, `data`, `farmacia`, `email` " + "FROM `Ritiro` where `nome` = '" + username + "';";
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);       
+            stmtRetreat = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);       
             
-            ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rsRitiro = stmtRetreat.executeQuery(sql);
             
-            if (rs.first()) {		// rs non vuoto, posso procedere
-            	rs.first();
+            if (rsRitiro.first()) {		// rs non vuoto, posso procedere
+            	rsRitiro.first();
             	ritiri = new ArrayList<>();
                
             	do {
-            		RitiroCliente r = new RitiroCliente(/*rs.getString("nome"),*/rs.getString("citta"), rs.getString("indirizzo"), (rs.getDate("data")).toLocalDate(), rs.getString("farmacia"), rs.getString("email"));
+            		RitiroCliente r = new RitiroCliente(/*rs.getString("nome"),*/rsRitiro.getString("citta"), rsRitiro.getString("indirizzo"), (rsRitiro.getDate("data")).toLocalDate(), rsRitiro.getString("farmacia"), rsRitiro.getString("email"));
              		
             		ritiri.add(r);
             		
-            	} while (rs.next());
+            	} while (rsRitiro.next());
             	
             }
 
             else{
-            	rs.close();
-                stmt.close();
+            	rsRitiro.close();
+                stmtRetreat.close();
                 conn.close();
             }
-        }  catch (SQLException se) {
-            // Errore durante l'apertura della connessione
-            se.printStackTrace();
-        } catch (Exception e) {
-            // Errore nel loading del driver
-            e.printStackTrace();
+        } catch (Exception excRetreat) {
+        	excRetreat.printStackTrace();
         } finally {
-        	List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+        	List<Statement> statementsRetreat = new ArrayList<>();
+        	statementsRetreat.add(stmtRetreat);
 
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeConnections(conn, statementsRetreat);
         }
 		return ritiri;
 	}

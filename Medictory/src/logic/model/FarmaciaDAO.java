@@ -170,37 +170,33 @@ public class FarmaciaDAO {
     	   	String sql = "SELECT F.`username`, F.`nome`, F.`indirizzo`, U.`email`, U.`password` " + "FROM `Farmacia` F JOIN `Utenti` U on F.`username` = U.`username`;";
     	   
     	   	stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    	   	ResultSet rs = stmt.executeQuery(sql);
+    	   	ResultSet resF = stmt.executeQuery(sql);
        
         
-    	   	if (rs.first()){
-    	   		rs.first();
+    	   	if (resF.first()){
+    	   		resF.first();
     	   		list = new ArrayList<>();
     	   		do {
     	   			
-    	   			Farmacia f = (Farmacia) factory.creaUtente(rs.getString("username"), rs.getString("password"), rs.getString("email"));
-    	   			f.setNome(rs.getString("nome"));
-    	   			f.setIndirizzo(rs.getString("indirizzo"));
+    	   			Farmacia f = (Farmacia) factory.creaUtente(resF.getString("username"), resF.getString("password"), resF.getString("email"));
+    	   			f.setNome(resF.getString("nome"));
+    	   			f.setIndirizzo(resF.getString("indirizzo"));
     	   			list.add(f);
     	   		
-    	   		} while(rs.next());
+    	   		} while(resF.next());
     	   	
-    	   		rs.close();
+    	   		resF.close();
     	   		stmt.close();
     	   		conn.close();
     	   	}
     	   	
-       	} catch (SQLException se) {
-       		// Errore durante l'apertura della connessione
-       		se.printStackTrace();
-       	} catch (Exception e) {
-       		// Errore nel loading del driver
-       		e.printStackTrace();
+       	} catch (Exception excFarmacia) {
+       		excFarmacia.printStackTrace();
        	} finally {
-       		List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+       		List<Statement> stmts= new ArrayList<>();
+       		stmts.add(stmt);
 
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeConnections(conn, stmts);
        	}
        return list;
 	}
