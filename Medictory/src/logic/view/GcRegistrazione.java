@@ -47,12 +47,12 @@ public class GcRegistrazione {
 	
 	private ControllerRegistrazione controller = new ControllerRegistrazione();
 	
-	private void setPrimaryStage(Stage primaryStage, String file) {
+	private void setPrimaryStage(Stage primaryS, String f) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(file));
-			primaryStage.setTitle("Medictory");
-			primaryStage.setScene(new Scene(root, 600,400));
-			primaryStage.show();
+			Parent root = FXMLLoader.load(getClass().getResource(f));
+			primaryS.setTitle("Medictory");
+			primaryS.setScene(new Scene(root, 600,400));
+			primaryS.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

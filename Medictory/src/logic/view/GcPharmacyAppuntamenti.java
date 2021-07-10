@@ -1,16 +1,14 @@
 package logic.view;
 
-import java.io.IOException;
 import logic.controller.ControllerPharmacyAppuntamenti;
 import logic.ingegnerizzazione.PharmacyAppuntamentiBean;
+import logic.ingegnerizzazione.PrimaryStage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -53,22 +51,11 @@ public class GcPharmacyAppuntamenti implements GraphicController {
 
 	private ControllerPharmacyAppuntamenti controller = new ControllerPharmacyAppuntamenti();
 	
+	
 	private void setPrimaryStage(Stage primaryStage, String file) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-			Parent root = loader.load();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+		PrimaryStage.setPrimaryStage(primaryStage, loader, sessione);
 			
-			
-			GraphicController controllerNext= loader.getController();
-			controllerNext.setData(sessione);
-			
-			primaryStage.setTitle("Medictory");
-			primaryStage.setScene(new Scene(root, 600,400));
-			primaryStage.show();
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-			}
 		
 	}
 	

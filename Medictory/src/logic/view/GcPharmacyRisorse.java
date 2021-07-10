@@ -6,22 +6,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import logic.model.FarmacoFarmacia;
 import logic.model.Sessione;
 import logic.model.SessioneFarmacia;
-import java.io.IOException;
 import java.time.LocalDate;
 import logic.controller.ControllerPharmacyResource;
 import logic.ingegnerizzazione.DataNotFoundException;
 import logic.ingegnerizzazione.Feedback;
 import logic.ingegnerizzazione.InputException;
 import logic.ingegnerizzazione.Observer;
+import logic.ingegnerizzazione.PrimaryStage;
 import logic.ingegnerizzazione.RisorseFarmaciaBean;
-import javafx.scene.Scene;
 
 public class GcPharmacyRisorse implements GraphicController, Observer{
 	
@@ -64,20 +62,8 @@ public class GcPharmacyRisorse implements GraphicController, Observer{
 	
 	
 	private void setPrimaryStage(Stage primaryStage, String file) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-			Parent root = loader.load();
-					
-			GraphicController controllerNext = loader.getController();
-			controllerNext.setData(sessione);
-			
-			primaryStage.setTitle("Medictory");
-			primaryStage.setScene(new Scene(root, 600,400));
-			primaryStage.show();
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+		PrimaryStage.setPrimaryStage(primaryStage, loader, sessione);
 	}
 	
 	

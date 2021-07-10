@@ -1,16 +1,13 @@
 package logic.view;
 
-import java.io.IOException;
-
 import logic.controller.ControllerCustomerAppuntamento;
 import logic.ingegnerizzazione.Feedback;
 import logic.ingegnerizzazione.InputException;
+import logic.ingegnerizzazione.PrimaryStage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -55,20 +52,8 @@ public class GcCustomerAppuntamento implements GraphicController {
 	private ControllerCustomerAppuntamento controller = new ControllerCustomerAppuntamento();
 
 	private void setPrimaryStageC(Stage stage, String file) {
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(file));
-			Parent parent = fxmlLoader.load();
-			
-			GraphicController controllerNx = fxmlLoader.getController();
-			controllerNx.setData(sessione);
-			
-			stage.setTitle("Medictory");
-			stage.setScene(new Scene(parent, 600,400));
-			stage.show();
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-			}
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+		PrimaryStage.setPrimaryStage(stage, loader, sessione);
 		
 	}
 	

@@ -5,19 +5,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import logic.model.Sessione;
 import logic.model.SessioneFarmacia;
-import java.io.IOException;
 import java.time.LocalDate;
 import logic.controller.ControllerPharmacyGestione;
 import logic.ingegnerizzazione.Feedback;
 import logic.ingegnerizzazione.InputException;
 import logic.ingegnerizzazione.PharmacyGestioneBean;
-import javafx.scene.Scene;
+import logic.ingegnerizzazione.PrimaryStage;
 
 public class GcPharmacyAutentificazione implements GraphicController{
 	
@@ -57,21 +55,8 @@ public class GcPharmacyAutentificazione implements GraphicController{
 
 
 	private void setPrimaryStage(Stage primaryStage, String file) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-			Parent root = loader.load();
-			
-			
-			GraphicController controllerNext= loader.getController();
-			controllerNext.setData(sessione);
-			
-			primaryStage.setTitle("Medictory");
-			primaryStage.setScene(new Scene(root, 600,400));
-			primaryStage.show();
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-			}
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+		PrimaryStage.setPrimaryStage(primaryStage, loader, sessione);
 		
 	}
 	
