@@ -26,32 +26,32 @@ public class SvolgimentoEvento extends AbstractState{
     
     
 	@Override
-	public String setVincitore(String v) {
+	public String setVincitore(String vincitore) {
 		return null;
 	}
     
 	@Override
-	public String setFine(String f) {
+	public String setFine(String fine) {
 		return null;
 	}
     
 	@Override
-	public String setInizio(String i) {
+	public String setInizio(String inizio) {
 		return null;
 	}
     
 	@Override
-	public String setPremio(String premio) {
+	public String setPremio(String reward) {
 		return null;
 	}
     
 	@Override
-	public String setDescrizione(String ds) {
+	public String setDescrizione(String description) {
 		return null;
 	}
     
 	@Override
-	public String setNome(String nome) {
+	public String setNome(String name) {
 		return null;
 	}
 	
