@@ -7,7 +7,7 @@ import logic.ingegnerizzazione.EventiUtenteBean;
 public abstract class AbstractState/*State*/ {
 	protected Evento evento;
 	
-	public AbstractState(Evento evento2) {
+	protected AbstractState(Evento evento2) {
 		this.evento= evento2;
 		
 	}

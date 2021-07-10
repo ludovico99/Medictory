@@ -4,17 +4,17 @@ import logic.model.SessioneFarmacia;
 
 public class PharmacyAccountBean {
 	private String username;
-	private String email;
-	private String nomeFarmacia;
-	private String indirizzo;
+	private String emailFarmacia;
+	private String namePharmacy;
+	private String address;
 	private String numeroClienti;
 	
 	
 	public PharmacyAccountBean(SessioneFarmacia sessione) {
 		this.username = (sessione.getUsername());
-		this.email = (sessione.getEmail());
-		this.nomeFarmacia= (sessione.getNomeFarmacia());
-		this.indirizzo = (sessione.getIndirizzo());
+		this.emailFarmacia = (sessione.getEmail());
+		this.namePharmacy= (sessione.getNomeFarmacia());
+		this.address = (sessione.getIndirizzo());
 		this.numeroClienti = (Integer.toString(sessione.getClienti().size()));
 	}
 
@@ -29,33 +29,33 @@ public class PharmacyAccountBean {
 	}
 
 
-	public String getEmail() {
-		return email;
+	public String getEmailFarmacia() {
+		return emailFarmacia;
 	}
 
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailFarmacia(String email) {
+		this.emailFarmacia = email;
 	}
 
 
-	public String getNomeFarmacia() {
-		return nomeFarmacia;
+	public String getNamePharmacy() {
+		return namePharmacy;
 	}
 
 
-	public void setNomeFarmacia(String nomeFarmacia) {
-		this.nomeFarmacia = nomeFarmacia;
+	public void setNamePharmacy(String nomeFarmacia) {
+		this.namePharmacy = nomeFarmacia;
 	}
 
 
-	public String getIndirizzo() {
-		return indirizzo;
+	public String getAddress() {
+		return address;
 	}
 
 
-	public void setIndirizzo(String indirizzo) {
-		this.indirizzo = indirizzo;
+	public void setAddress(String indirizzo) {
+		this.address = indirizzo;
 	}
 
 
