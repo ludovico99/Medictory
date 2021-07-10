@@ -27,15 +27,15 @@ public class GcPharmacyAccount implements GraphicController, Observer{
 	@FXML
 	private Button clienti;
 	@FXML
-	private Button dati;
+	private Button datiF;
 	@FXML
-	private Button home;
+	private Button homeF;
 	@FXML
-	private Button home2;
+	private Button home2F;
 	@FXML
-	private Button logout;
+	private Button logoutF;
 	@FXML
-	private Button logout2;
+	private Button logout2F;
 	@FXML
 	private Label username;
 	@FXML
@@ -51,19 +51,19 @@ public class GcPharmacyAccount implements GraphicController, Observer{
 	@FXML
 	private Label indirizzoLb;
 	@FXML
-	private Label usernameLabel;
+	private Label usernameLabelF;
 	@FXML
-	private Label emailLabel;
+	private Label emailLabelF;
 	@FXML
-	private Label farmaciaLabel;
+	private Label farmaciaLabelF;
 	@FXML
-	private Label puntiLb;
+	private Label puntiLbF;
 	@FXML
-	private Label livelloLb;
+	private Label livelloLbF;
 	@FXML
-	private Label ptLabel;
+	private Label ptLabelF;
 	@FXML
-	private Label lvLabel;
+	private Label lvLabelF;
 	@FXML
 	private TableView<ListaClientiBean> clientiTb;
 	@FXML
@@ -145,30 +145,30 @@ public class GcPharmacyAccount implements GraphicController, Observer{
 	}
 	
 	@FXML
-	public void clientiPressed(ActionEvent event) {
+	public void clientiPressedF(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "PharmacyAccountPage2.fxml", (Button)event.getSource());
 	}
 
 	@FXML
-	public void homePressed(ActionEvent event) {
+	public void homePressedF(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "HomepagePharmacy.fxml", (Button)event.getSource());
 	}
 	@FXML
-	public void home2Pressed(ActionEvent event) {
-		this.homePressed(event);
+	public void home2PressedF(ActionEvent event) {
+		this.homePressedF(event);
 	}
 	
 	@FXML
-	public void logoutPressed(ActionEvent event) {
+	public void logoutPressedF(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "progetto.fxml", (Button)event.getSource());
 	}
 	
 	@FXML
-	public void logout2Pressed(ActionEvent event) {
-		this.logoutPressed(event);
+	public void logout2PressedF(ActionEvent event) {
+		this.logoutPressedF(event);
 	}
 	
 	public void setData(Sessione farma) {

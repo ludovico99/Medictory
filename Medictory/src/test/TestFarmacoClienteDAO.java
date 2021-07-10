@@ -4,13 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+import logic.ingegnerizzazione.ConnectionClose;
 import logic.model.ClienteDAO;
 import logic.model.Connector;
 import logic.model.FarmacoCliente;
@@ -32,28 +32,23 @@ private static Connector connector = Connector.getConnectorInstance();
 	
 		Statement stmt = null;
 	if (ClienteDAO.esisteCliente(USERNAME,"username") != null) {
-			String sql1 = "DELETE  FROM  `farmaco cliente`  WHERE `possessore`='" + USERNAME + "';"; 
+			String sql = "DELETE  FROM  `farmaco cliente`  WHERE `possessore`='" + USERNAME + "';"; 
 			
 		try {
 			 
 			 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			    
-			 stmt.executeUpdate(sql1);
+			 stmt.executeUpdate(sql);
 			    
 			 stmt.close();
-		 } catch (SQLException se) {
-	   se.printStackTrace();
-		} catch (Exception e) {
+		 }  catch (Exception ex) {
 		 
-		   e.printStackTrace();
+		   ex.printStackTrace();
 		} finally {
-			 if (stmt != null) {
-		           try{   
-		               stmt.close();
-		           } catch (SQLException se) {
-		               se.printStackTrace();
-		           }
-		       }
+			List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+	
+        	ConnectionClose.closeConnections(conn, statements);
 		}		
 	}
 	else {

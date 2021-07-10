@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+import logic.ingegnerizzazione.ConnectionClose;
 import logic.model.Connector;
 import logic.model.EventoDAO;
 import logic.model.EventoFarmacia;
@@ -29,30 +29,25 @@ public class TestEventoDAO {
 		
 		Connection conn= connector.getConnection();
 	
-		Statement stmt = null;
+		Statement statement = null;
 	if (FarmaciaDAO.esisteFarmacia(USERNAME, "nuovaFarmacia") != null) {
 			String sql1 = "DELETE  FROM `evento`  WHERE `farmacia`='" + USERNAME + "';"; 
 			
 		try {
 			 
-			 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			 statement = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			    
-			 stmt.executeUpdate(sql1);
+			 statement.executeUpdate(sql1);
 			    
-			 stmt.close();
-		 } catch (SQLException se) {
-	   se.printStackTrace();
-		} catch (Exception e) {
+			 statement.close();
+		 } catch (Exception e) {
 		 
 		   e.printStackTrace();
 		} finally {
-			 if (stmt != null) {
-		           try{   
-		               stmt.close();
-		           } catch (SQLException se) {
-		               se.printStackTrace();
-		           }
-		       }
+			List<Statement> statements = new ArrayList<>();
+        	statements.add(statement);
+	
+        	ConnectionClose.closeConnections(conn, statements);
 		}		
 	}
 	else {

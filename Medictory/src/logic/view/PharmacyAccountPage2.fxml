@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+ 
+
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -17,6 +19,8 @@
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+
+ 
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcPharmacyAccount">
    <children>
@@ -79,7 +83,7 @@
                       <TableColumn fx:id="puntiCol" prefWidth="88.0" text="Punti" />
                     </columns>
                   </TableView>
-                  <Button fx:id="logout" layoutX="363.0" layoutY="235.0" mnemonicParsing="false" onAction="#logoutPressed" prefHeight="23.0" prefWidth="86.0" style="-fx-background-color: #FFFFFF00;" text="Log - out" textFill="WHITE">
+                  <Button fx:id="logoutF" layoutX="363.0" layoutY="235.0" mnemonicParsing="false" onAction="#logoutPressedF" prefHeight="23.0" prefWidth="86.0" style="-fx-background-color: #FFFFFF00;" text="Log - out" textFill="WHITE">
                      <font>
                         <Font name="Arial Nova Bold Italic" size="12.0" />
                      </font>
@@ -92,7 +96,7 @@
             </Pane>
             <Polyline fill="WHITE" layoutX="595.0" layoutY="-13.0" points="-42.0, 43.0, -30.0, 27.0, -17.0, 43.0, -23.0, 43.0" stroke="WHITE" strokeType="INSIDE" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="16.0" layoutX="557.0" layoutY="23.0" stroke="WHITE" strokeType="INSIDE" width="16.0" />
-            <Button fx:id="home" layoutX="547.0" layoutY="16.0" mnemonicParsing="false" onAction="#homePressed" prefHeight="23.0" prefWidth="34.0" style="-fx-background-color: #00000000;" textFill="#197778">
+            <Button fx:id="homeF" layoutX="547.0" layoutY="16.0" mnemonicParsing="false" onAction="#homePressedF" prefHeight="23.0" prefWidth="34.0" style="-fx-background-color: #00000000;" textFill="#197778">
                <font>
                   <Font name="Arial Nova Light" size="11.0" />
                </font>
