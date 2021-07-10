@@ -6,6 +6,8 @@ public class RegistrazioneFarmaciaBean {
 	private String email;
 	private String nomeFarmacia;
 	private String indirizzo;
+	
+	
 	public String getUsername() {
 		return username;
 	}

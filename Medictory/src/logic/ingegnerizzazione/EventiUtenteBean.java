@@ -1,11 +1,11 @@
 package logic.ingegnerizzazione;
 
 public class EventiUtenteBean {
-	protected String evento;
-	protected String descrizione;
-	protected String premio;
-	protected String dataInizio;
-	protected String dataFine;
+	private String evento;
+	private String descrizione;
+	private String premio;
+	private String dataInizio;
+	private String dataFine;
 	private String requisiti;
 	
 	
