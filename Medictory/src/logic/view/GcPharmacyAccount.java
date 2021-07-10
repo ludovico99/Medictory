@@ -113,9 +113,9 @@ public class GcPharmacyAccount implements GraphicController, Observer{
 		if(sessione != null) {
 			PharmacyAccountBean bean = new PharmacyAccountBean(sessione);
 			usernameLb.setText(bean.getUsername());
-			emailLb.setText(bean.getEmail());
-			nomeLb.setText(bean.getNomeFarmacia());
-			indirizzoLb.setText(bean.getIndirizzo());
+			emailLb.setText(bean.getEmailFarmacia());
+			nomeLb.setText(bean.getNamePharmacy());
+			indirizzoLb.setText(bean.getAddress());
 			count.setText(bean.getNumeroClienti());
 		}
 	}

@@ -83,8 +83,8 @@
 	  					<tr>
 	    			    <td> <%=r.getUtente()%></td>
 	    			    <td><%= r.getEmail() %></td>
-	    			    <td><%= r.getCitta() %></td>
-				   		<td><%= r.getIndirizzo() %></td>
+	    			    <td><%=r.getCity()%></td>
+				   		<td><%=r.getAddress()%></td>
 	    			    <td><%=r.getData().toString() %></td>
 			       </tr>
 	  			

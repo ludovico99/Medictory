@@ -27,13 +27,13 @@ public class ControllerPharmacyEvent{
 		for (EventoFarmacia e: eventi) {
 			infoPartecipanti = e.customersToAward(s.getUsername());
 			//controller behaves according to the state of the entity EVENT
-			if (infoPartecipanti != null && !infoPartecipanti.isEmpty() && e.getVincitore()==null) {
+			if (infoPartecipanti != null && !infoPartecipanti.isEmpty() && e.getWinner()==null) {
 				int dimensione = infoPartecipanti.size();
 			    int selected = r.nextInt(dimensione);
 				e.setChanged(true);
 				e.nextState();
 				e.notifica();	
-				Runnable prem = new ThreadPremiazioneEvento(infoPartecipanti.get(selected).getUsername(),infoPartecipanti.get(selected).getEmail(),e.getPremio(),e);
+				Runnable prem = new ThreadPremiazioneEvento(infoPartecipanti.get(selected).getUsername(),infoPartecipanti.get(selected).getEmail(),e.getAward(),e);
 				new Thread(prem).start();
 			}
 		}	
@@ -47,7 +47,7 @@ public class ControllerPharmacyEvent{
 		if (nomeEvento.compareToIgnoreCase("") == 0) throw new InputException("Non hai inserito nessun parametro");
 		List<EventoFarmacia> eventi = s.getEventi();
 		for (EventoFarmacia e : eventi) {
-			if (e.getNome().compareToIgnoreCase(nomeEvento) == 0) { //Data la farmacia il nome evento è unico
+			if (e.getName().compareToIgnoreCase(nomeEvento) == 0) { //Data la farmacia il nome evento è unico
 				
 				if(e.setDeleted(true)) {
 					return e;
@@ -79,7 +79,7 @@ public class ControllerPharmacyEvent{
 		
 		if (sessione.getEventi() != null) {
 			for(EventoFarmacia e: sessione.getEventi()) {
-				if(e.getNome().compareToIgnoreCase(infoNome) == 0) {
+				if(e.getName().compareToIgnoreCase(infoNome) == 0) {
 					throw new InputException("Hai gi&agrave creato un evento con questo nome");
 				}
 			}
@@ -114,7 +114,7 @@ public class ControllerPharmacyEvent{
 		for(int i=0; i<eventi.size(); i++) {
 			AbstractState state = eventi.get(i).getState();
 		 if(!eventi.get(i).isDeleted() && (state.getClass() == StatoIniziale.class || state.getClass() == SvolgimentoEvento.class)){	
-				list.add(new PharmacyAllEventBean(eventi.get(i).getNome(), eventi.get(i).getDescrizione(), Integer.toString(eventi.get(i).getLivelloRichiesto()), eventi.get(i).getPremio(), eventi.get(i).getInizio() , eventi.get(i).getFine())); 
+				list.add(new PharmacyAllEventBean(eventi.get(i).getName(), eventi.get(i).getDescription(), Integer.toString(eventi.get(i).getRequiredLevel()), eventi.get(i).getAward(), eventi.get(i).getStartDate() , eventi.get(i).getEndDate())); 
 			}
 		}
 	

@@ -4,14 +4,14 @@ import logic.ingegnerizzazione.Observer;
 
 public interface Evento {
 	 public void nextState();
-	 public String getVincitore();
+	 public String getWinner();
 	 public AbstractState getState();
-	 public String getNome();
-	 public String getPremio();
-	 public String getDescrizione();
-	 public String getFine();
-	 public int getLivelloRichiesto();
-	 public String getInizio();
+	 public String getName();
+	 public String getAward();
+	 public String getDescription();
+	 public String getEndDate();
+	 public int getRequiredLevel();
+	 public String getStartDate();
 	 public void attach(Observer observer);
 	 public void detach(Observer observer);
 	 public void notifica();

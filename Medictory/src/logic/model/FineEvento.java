@@ -46,6 +46,7 @@ public class FineEvento extends AbstractState{
 	@Override
 	public String setInizio(String i) {
 		return null;
+	
 	}
     
 	@Override

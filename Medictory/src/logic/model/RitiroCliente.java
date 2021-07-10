@@ -11,8 +11,7 @@ public class RitiroCliente {
 	private String email;
 	
 	public RitiroCliente(String citta, String indirizzo, LocalDate data, String farmacia, String email) {
-		
-		
+			
 		this.citta = citta;
 		this.indirizzo = indirizzo;
 		this.data = data;

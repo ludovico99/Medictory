@@ -94,10 +94,10 @@
   				for (RiciclaggioUtenteBean r : riciclaggio ){
 %>
   					<tr>
-    			    	<td> <%=r.getFarmaco()%></td>
+    			    	<td> <%=r.getDrug()%></td>
     		
-			    		<td><%= r.getDescrizione() %></td>
-    			    	<td><%=r.getQuantitativo() %></td>
+			    		<td><%=r.getDetail()%></td>
+    			    	<td><%=r.getAmount()%></td>
 		       		</tr>
 <% }} %>    		
 		    </table>

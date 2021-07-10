@@ -37,19 +37,19 @@
 		}
 %>
  <jsp:forward page="CustomerHomepage.jsp"></jsp:forward>
-<% 
+<%
 	}else if(request.getParameter("registra") !=null){
 		if(request.getParameter("usernameReg")!=null) {
-			String usernameReg = request.getParameter ("usernameReg");
-			accountBean.setUsername(usernameReg);
+	String usernameReg = request.getParameter ("usernameReg");
+	accountBean.setNomeUtente(usernameReg);
 	 	}
 		if(request.getParameter("emailReg")!=null) {
 		 	String emailReg = request.getParameter ("emailReg");
-		 	accountBean.setEmail(emailReg);
+		 	accountBean.setEmailAddress(emailReg);
 		}
 		if(request.getParameter("pwdReg")!=null) {
 		 	String passwordReg = request.getParameter ("pwdReg");
-		 	accountBean.setPassword(passwordReg);
+		 	accountBean.setPwd(passwordReg);
 		}
 		if(request.getParameter("farmaReg")!=null) {
 		 	String farmaciaReg = request.getParameter ("farmaReg");
@@ -57,7 +57,7 @@
 		}
 		
 		ControllerRegistrazione controller = new ControllerRegistrazione();
-		if(!controller.registraCliente(accountBean.getUsername(), accountBean.getPassword(), accountBean.getEmail(), accountBean.getFarmaciaAssociata())){
+		if(!controller.registraCliente(accountBean.getNomeUtente(), accountBean.getPwd(), accountBean.getEmailAddress(), accountBean.getFarmaciaAssociata())){
 %>
 			<jsp:forward page="Error.jsp">
 			<jsp:param name="errore" value="Input errato"/>

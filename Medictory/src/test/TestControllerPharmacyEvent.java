@@ -65,8 +65,8 @@ public class TestControllerPharmacyEvent {
 				
 				try {
 					SimpleDateFormat sdf = new  SimpleDateFormat("yyyy-MM-dd");
-		    		Date inizio = sdf.parse(eventi.get(j).getInizio());
-		    		Date fine = sdf.parse(eventi.get(j).getFine());
+		    		Date inizio = sdf.parse(eventi.get(j).getStartDate());
+		    		Date fine = sdf.parse(eventi.get(j).getEndDate());
 					
 					if (inizio.before(oggi))
 						eventi.get(j).nextState();

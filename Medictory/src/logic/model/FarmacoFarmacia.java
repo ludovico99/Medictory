@@ -16,20 +16,20 @@ public class FarmacoFarmacia extends Farmaco implements Observable{
 	}
 	
 	@Override
-	public void attach(Observer observer){   //agg un osservatore alla lista
-		if (!observers.contains(observer))
-			observers.add(observer);		
+	public void attach(Observer osservatore){   //agg un osservatore alla lista
+		if (!observers.contains(osservatore))
+			observers.add(osservatore);		
 	}
 	
 	@Override
-	public void detach(Observer observer) {
-		observers.remove(observer);
+	public void detach(Observer osservatore) {
+		observers.remove(osservatore);
 		
 	}
 	@Override
 	public void notifica(){
-	    for (Observer observer : observers) {
-	    	observer.update();
+	    for (Observer osservatore : observers) {
+	    	osservatore.update();
 	    }
 
 	}

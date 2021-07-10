@@ -65,20 +65,20 @@ public class Cliente extends Utente implements Observable{
 	}
 		
 	@Override
-	public void attach(Observer observer){   //agg un osservatore alla lista
-		if (!observers.contains(observer))
-			observers.add(observer);		
+	public void attach(Observer obs){   //agg un osservatore alla lista
+		if (!observers.contains(obs))
+			observers.add(obs);		
 	}
 	
 	@Override
-	public void detach(Observer observer) {
-		observers.remove(observer);
+	public void detach(Observer obs) {
+		observers.remove(obs);
 		
 	}
 	@Override
 	public void notifica(){
-	    for (Observer observer : observers) {
-	    	observer.update();
+	    for (Observer obs : observers) {
+	    	obs.update();
 	    }
 	
 	}

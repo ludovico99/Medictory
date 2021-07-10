@@ -73,14 +73,14 @@ public class StatoIniziale extends AbstractState {
 	
 	@Override
 	public void addEventToPartecipatingList(List<EventiUtenteBean> list) {
-		list.add(new EventiUtenteBean(evento.getNome(), evento.getDescrizione(), evento.getPremio(), evento.getInizio() , evento.getFine())); 
+		list.add(new EventiUtenteBean(evento.getName(), evento.getDescription(), evento.getAward(), evento.getStartDate() , evento.getEndDate())); 
 		
 	}
 	
 	@Override
 	public void addEventToActiveEventList(List<EventiUtenteBean> list) {
-		EventiUtenteBean event = new EventiUtenteBean(evento.getNome(), evento.getDescrizione(),evento.getPremio(), evento.getInizio() , evento.getFine());
-		event.setRequisiti(Integer.toString(evento.getLivelloRichiesto()));
+		EventiUtenteBean event = new EventiUtenteBean(evento.getName(), evento.getDescription(),evento.getAward(), evento.getStartDate() , evento.getEndDate());
+		event.setRequisiti(Integer.toString(evento.getRequiredLevel()));
 		list.add(event);
 	}
 }

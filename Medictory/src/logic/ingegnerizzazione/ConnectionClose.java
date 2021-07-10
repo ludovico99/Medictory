@@ -3,6 +3,7 @@ package logic.ingegnerizzazione;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 
 public class ConnectionClose {
@@ -12,15 +13,17 @@ public class ConnectionClose {
 		  }
 
 	
-	public static void closeAConnection(Connection conn, Statement stmt) {
+	public static void closeConnections(Connection conn, List<Statement> stmt) {
 		try {
-            if (stmt != null)
-                stmt.close();
-            conn.close();
+			conn.close();
+			for (Statement i : stmt) {
+	            if (i != null)
+	                i.close();
+			}
+            
         } catch (SQLException se) {
             se.printStackTrace();
         }
 	}
 
 }
-

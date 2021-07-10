@@ -9,28 +9,28 @@ import logic.ingegnerizzazione.Observer;
 
 public class EventoFarmacia implements Observable, Evento {
 	
-	private AbstractState state;
+	private AbstractState stato;
 	private ArrayList<Observer> observers = new ArrayList<>();
-	private String nome;
-	private String descrizione;
-	private String premio;
-	private String inizio;
-	private String fine;
-	private String vincitore = null;
-    private int livelloRichiesto;
+	private String name;
+	private String description;
+	private String award;
+	private String startDate;
+	private String endDate;
+	private String winner = null;
+    private int requiredLevel;
     private boolean addedRuntime = false; //E' solo per la farmacia
     private boolean changed = false;
     private boolean deleted = false; // E' solo per la farmacia
    
 
-    public EventoFarmacia(String nome, String descrizione, String premio, String inizio, String fine, int lv) {
-        this.state = new StatoIniziale(this);
-        this.nome = nome;
-        this.descrizione = descrizione;
-        this.premio = premio;
-        this.livelloRichiesto = lv;
-        this.inizio = inizio;
-        this.fine = fine;
+    public EventoFarmacia(String eventName, String description, String award, String startDate, String endDate, int level) {
+        this.stato = new StatoIniziale(this);
+        this.name = eventName;
+        this.description = description;
+        this.award = award;
+        this.requiredLevel = level;
+        this.startDate = startDate;
+        this.endDate = endDate;
         
     }
     
@@ -38,17 +38,17 @@ public class EventoFarmacia implements Observable, Evento {
     
     @Override
     public void nextState() {
-        this.state = this.state.nextState();
+        this.stato = this.stato.nextState();
     }
     
 	public List<Cliente> customersToAward(String username) {
-		return this.state.customersToAward(username);
+		return this.stato.customersToAward(username);
 	}
     
 
-    public boolean setLivelloRichiesto(int livelloRichiesto) {
-		if(state.setLivelloRichiesto(livelloRichiesto) > 0) {
-			this.livelloRichiesto = state.setLivelloRichiesto(livelloRichiesto);
+    public boolean setRequiredLevel(int livelloRichiesto) {
+		if(stato.setLivelloRichiesto(livelloRichiesto) > 0) {
+			this.requiredLevel = stato.setLivelloRichiesto(livelloRichiesto);
 			return true;
 		}
 		else return false;
@@ -56,15 +56,15 @@ public class EventoFarmacia implements Observable, Evento {
     
     
 
-	public String setVincitore(String vincitore) {
-		this.vincitore = state.setVincitore(vincitore);
-		return this.vincitore;
+	public String setWinner(String vincitore) {
+		this.winner = stato.setVincitore(vincitore);
+		return this.winner;
 	}
     
 
-	public boolean setFine(String fine) {
-		if( state.setFine(fine) != null) {
-			this.fine = state.setFine(fine);
+	public boolean setEndDate(String fine) {
+		if( stato.setFine(fine) != null) {
+			this.endDate = stato.setFine(fine);
 			this.changed = true;
 			return true;
 		}
@@ -72,37 +72,37 @@ public class EventoFarmacia implements Observable, Evento {
 	}
     
  
-	public boolean setInizio(String inizio) {
+	public boolean setStartDate(String inizio) {
 		
-		if(state.setInizio(inizio) != null) {
-			this.inizio = state.setInizio(inizio);
+		if(stato.setInizio(inizio) != null) {
+			this.startDate = stato.setInizio(inizio);
 			return true;
 		}
 		else return false;
 	}
 	
   
-	public boolean setPremio(String premio) {
-		if(state.setPremio(premio) != null) {
-			this.premio = state.setPremio(premio);
+	public boolean setAward(String premio) {
+		if(stato.setPremio(premio) != null) {
+			this.award = stato.setPremio(premio);
 			return true;
 		}
 		else return false;
 	}
     
   
-	public boolean setDescrizione(String descrizione) {
-		if( state.setDescrizione(descrizione) != null) {
-			this.descrizione = state.setDescrizione(descrizione);
+	public boolean setDescription(String descrizione) {
+		if( stato.setDescrizione(descrizione) != null) {
+			this.description = stato.setDescrizione(descrizione);
 			return true;
 		}
 		else return false;
 	}
     
     
-	public boolean setNome(String nome) {
-		if( state.setNome(nome) != null) {
-			this.nome = state.setNome(nome);
+	public boolean setEventName(String nome) {
+		if( stato.setNome(nome) != null) {
+			this.name = stato.setNome(nome);
 			return true;
 		}
 		else return false;
@@ -111,7 +111,7 @@ public class EventoFarmacia implements Observable, Evento {
     
 	public boolean setDeleted(boolean deleted) {
 		
-		this.deleted = state.setDeleted(deleted);
+		this.deleted = stato.setDeleted(deleted);
 		return this.deleted;
 
 	}
@@ -120,59 +120,59 @@ public class EventoFarmacia implements Observable, Evento {
 	/********************* NON CAMBIANO IMPLEMENTAZIONE IN BASE ALLO STATO *****************************************/
 	@Override
 	public AbstractState getState() {
-        return state;
+        return stato;
     }
 	
 	//@Override
-    public String getVincitore() {
-    	return this.vincitore;
+    public String getWinner() {
+    	return this.winner;
 	}
     
 	
 	@Override
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 	
 	@Override
-	public String getPremio() {
-		return premio;
+	public String getAward() {
+		return award;
 	}
 	
 	@Override
-	public String getDescrizione() {
-		return descrizione;
+	public String getDescription() {
+		return description;
 	}
 	
 	@Override
-	public String getFine() {
-		return fine;
+	public String getEndDate() {
+		return endDate;
 	}
 	
 	@Override
-	public int getLivelloRichiesto() {
-		return livelloRichiesto;
+	public int getRequiredLevel() {
+		return requiredLevel;
 	}
 	@Override
-	public String getInizio() {
-		return inizio;
+	public String getStartDate() {
+		return startDate;
 	}
 
 	@Override
-	public void attach(Observer observer){   
-		if (!observers.contains(observer))
-			observers.add(observer);		
+	public void attach(Observer observe){   
+		if (!observers.contains(observe))
+			observers.add(observe);		
 	}
 	
 	@Override
-	public void detach(Observer observer) {
-		observers.remove(observer);
+	public void detach(Observer observe) {
+		observers.remove(observe);
 		
 	}
 	@Override
 	public void notifica(){
-	    for (Observer observer : observers) {
-	       observer.update();
+	    for (Observer observe : observers) {
+	    	observe.update();
 	    }
 
 	}

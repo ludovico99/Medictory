@@ -27,7 +27,7 @@ public class ThreadPremiazioneEvento implements Runnable {
 	public void run() {
 		Premiazione p;
 		p = new PremioVincitaEvento(vincitore, emailCliente);
-		evento.setVincitore(vincitore);
+		evento.setWinner(vincitore);
 		if(premio.compareToIgnoreCase("coupon") == 0) {
 				Coupon coupon =new Coupon(p);
 				coupon.premia();

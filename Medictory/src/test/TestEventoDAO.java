@@ -73,7 +73,7 @@ public class TestEventoDAO {
 		
 		
 		
-		assertEquals(eventiExpected.get(0).getNome(),eventiFarmacia.get(0).getNome());
+		assertEquals(eventiExpected.get(0).getName(),eventiFarmacia.get(0).getName());
 		
 		
 	}

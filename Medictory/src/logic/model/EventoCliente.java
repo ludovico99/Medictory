@@ -61,55 +61,55 @@ public class EventoCliente implements Observable, Evento {
     }
 	
 	 @Override
-	 public String getVincitore() {
+	 public String getWinner() {
 		 return this.vincitore;
 	 }
 	
 	@Override
-	public String getNome() {
+	public String getName() {
 		return nome;
 	}
 	
 	@Override
-	public String getPremio() {
+	public String getAward() {
 		return premio;
 	}
 	
 	@Override
-	public String getDescrizione() {
+	public String getDescription() {
 		return descrizione;
 	}
 	
 	@Override
-	public String getFine() {
+	public String getEndDate() {
 		return fine;
 	}
 	
 	@Override
-	public int getLivelloRichiesto() {
+	public int getRequiredLevel() {
 		return livelloRichiesto;
 	}
 	
 	@Override
-	public String getInizio() {
+	public String getStartDate() {
 		return inizio;
 	}
 
 	@Override
-	public void attach(Observer observer){   
-		if (!observers.contains(observer))
-			observers.add(observer);		
+	public void attach(Observer o){   
+		if (!observers.contains(o))
+			observers.add(o);		
 	}
 	
 	@Override
-	public void detach(Observer observer) {
-		observers.remove(observer);
+	public void detach(Observer o) {
+		observers.remove(o);
 		
 	}
 	@Override
 	public void notifica(){
-	    for (Observer observer : observers) {
-	       observer.update();
+	    for (Observer o : observers) {
+	       o.update();
 	    }
 
 	}

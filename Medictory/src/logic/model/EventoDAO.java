@@ -75,7 +75,7 @@ public class EventoDAO {
 			 for (EventoFarmacia e : eventi) {
 				 if (e.isAddedRuntime() && !e.isDeleted()) {
 				   
-				    String sql1 = "INSERT INTO  `evento`  VALUES ('" + e.getNome() + "','" + s.getUsername() + "','" + e.getDescrizione() + "','" + e.getInizio() + "','" + e.getFine() + "','" + e.getPremio() + "','" + e.getLivelloRichiesto() + "', null);";
+				    String sql1 = "INSERT INTO  `evento`  VALUES ('" + e.getName() + "','" + s.getUsername() + "','" + e.getDescription() + "','" + e.getStartDate() + "','" + e.getEndDate() + "','" + e.getAward() + "','" + e.getRequiredLevel() + "', null);";
 				   
 				    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 				    
@@ -86,7 +86,7 @@ public class EventoDAO {
 				 }
 				 else if (e.isChanged() && !e.isDeleted()) { 
 					   
-					 	String sql1 = "UPDATE `evento`  SET `descrizione`= '" + e.getDescrizione() + "', `inizio` = '" + e.getInizio() + "', `fine` = '" +  e.getFine() + "', `premio` = '" + e.getPremio() + "', `livello richiesto` = '" + e.getLivelloRichiesto() + "', `vincitore` = '" + e.getVincitore() + "' WHERE `nome` = '" + e.getNome() + "' AND `farmacia`='" + s.getUsername() + "';";
+					 	String sql1 = "UPDATE `evento`  SET `descrizione`= '" + e.getDescription() + "', `inizio` = '" + e.getStartDate() + "', `fine` = '" +  e.getEndDate() + "', `premio` = '" + e.getAward() + "', `livello richiesto` = '" + e.getRequiredLevel() + "', `vincitore` = '" + e.getWinner() + "' WHERE `nome` = '" + e.getName() + "' AND `farmacia`='" + s.getUsername() + "';";
 					 	 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 						    
 						 stmt.executeUpdate(sql1);
@@ -95,7 +95,7 @@ public class EventoDAO {
 					    
 					 }
 				 else if (e.isDeleted()) {
-					 String sql1 = "DELETE  FROM `evento`  WHERE `nome` = '" + e.getNome() + "' AND `farmacia`='" + s.getUsername() + "';"; // impostare on delete cascade se è un evento al quale si è aderito
+					 String sql1 = "DELETE  FROM `evento`  WHERE `nome` = '" + e.getName() + "' AND `farmacia`='" + s.getUsername() + "';"; // impostare on delete cascade se è un evento al quale si è aderito
 					 
 					 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 					    
@@ -130,7 +130,7 @@ public class EventoDAO {
 			 for (EventoCliente e : eventi) {
 				 if (e.isJoined()) {
 				    farmaciaAssociata = s.getFarmaciaAssociata();
-				    String sql1 = "INSERT INTO  `Adesioni evento` VALUES ('" + s.getUsername() +"','" + e.getNome() + "','" + farmaciaAssociata + "');";
+				    String sql1 = "INSERT INTO  `Adesioni evento` VALUES ('" + s.getUsername() +"','" + e.getName() + "','" + farmaciaAssociata + "');";
 				    
 				    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 				    
@@ -184,14 +184,14 @@ public class EventoDAO {
 	    			
 	    		if (fine.before(oggi)) { 
 	    			ev.nextState();
-	    			ev.setVincitore(rs.getString("vincitore"));
+	    			ev.setWinner(rs.getString("vincitore"));
 	    			
 	    			//trovo i partecipanti solo per gli eventi che non hanno un vincitore 
 	    			//e che quindi devono ancora effettuare la premiazione
 	    			
-	    			if(ev.getVincitore() == null || ev.getVincitore().compareTo("") == 0) {
+	    			if(ev.getWinner() == null || ev.getWinner().compareTo("") == 0) {
 	    				FineEvento state = (FineEvento) ev.getState();
-	    				state.setInfoPartecipanti(findPartecipants(ev.getNome(), username));
+	    				state.setInfoPartecipanti(findPartecipants(ev.getName(), username));
 	    			}
 	    		}
 	    	

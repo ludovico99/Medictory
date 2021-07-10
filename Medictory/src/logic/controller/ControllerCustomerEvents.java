@@ -22,7 +22,7 @@ public class ControllerCustomerEvents {
 		
 		for(EventoCliente myEvent: s.getEventi()) {
 			
-			if(myEvent.getNome().compareToIgnoreCase(e.getNome()) == 0) {		
+			if(myEvent.getName().compareToIgnoreCase(e.getName()) == 0) {		
 				return true;
 		
 		
@@ -39,9 +39,9 @@ public class ControllerCustomerEvents {
 		if (nomeEvento.compareTo("")==0) throw new InputException("Non hai inserito nessun parametro");
 		
 		for (EventoCliente e : eventi) {
-			if (e.getNome().compareToIgnoreCase(nomeEvento) == 0) { 							//Data la farmacia il nome evento è unico
+			if (e.getName().compareToIgnoreCase(nomeEvento) == 0) { 							//Data la farmacia il nome evento è unico
 				
-				if(e.getLivelloRichiesto() > s.getLivello()) {
+				if(e.getRequiredLevel() > s.getLivello()) {
 					throw new RequirementException("Requisiti insoddisfatti: non puoi partecipare");
 					
 				
