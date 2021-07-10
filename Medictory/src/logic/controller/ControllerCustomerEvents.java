@@ -7,11 +7,9 @@ import java.util.List;
 import logic.ingegnerizzazione.EventiUtenteBean;
 import logic.ingegnerizzazione.InputException;
 import logic.ingegnerizzazione.RequirementException;
-import logic.model.AbstractState;
 import logic.model.EventoCliente;
 import logic.model.SessioneCliente;
-import logic.model.StatoIniziale;
-import logic.model.SvolgimentoEvento;
+
 
 public class ControllerCustomerEvents {
 	
@@ -65,9 +63,11 @@ public class ControllerCustomerEvents {
 		List<EventoCliente> eventi = s.getEventi() ;
 	
 		for(int i=0; i<eventi.size(); i++) {
-			AbstractState state = eventi.get(i).getState();
-			if(state.getClass() == StatoIniziale.class || state.getClass() == SvolgimentoEvento.class)
-				list.add(new EventiUtenteBean(eventi.get(i).getNome(), eventi.get(i).getDescrizione(), eventi.get(i).getPremio(), eventi.get(i).getInizio() , eventi.get(i).getFine())); 
+			
+			//chiamo questa funzione che ha un'implementazione diversa per ogni stato 
+			//nella tabella verranno effettivamente inseriti solo gli eventi che non sono conclusi
+			
+			eventi.get(i).addEventToPartecipatingList(list);
 		}
 	
 		return list;
@@ -81,12 +81,7 @@ public class ControllerCustomerEvents {
 		List<EventoCliente> eventi = sessione.getEventiAttiviFarmaciaAssociata();
 		if (eventi != null) {
 			for(int i=0; i<eventi.size(); i++) {
-				AbstractState state = eventi.get(i).getState();
-				if(state.getClass() == StatoIniziale.class || state.getClass() == SvolgimentoEvento.class){	
-					EventiUtenteBean evento = new EventiUtenteBean(eventi.get(i).getNome(), eventi.get(i).getDescrizione(),eventi.get(i).getPremio(), eventi.get(i).getInizio() , eventi.get(i).getFine());
-					evento.setRequisiti(Integer.toString(eventi.get(i).getLivelloRichiesto()));
-					list.add(evento);
-				}
+				eventi.get(i).addEventToActiveEventList(list);
 			}
 		}
 		return list;

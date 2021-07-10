@@ -1,7 +1,9 @@
 package logic.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import logic.ingegnerizzazione.EventiUtenteBean;
 import logic.ingegnerizzazione.Observable;
 import logic.ingegnerizzazione.Observer;
 
@@ -41,6 +43,14 @@ public class EventoCliente implements Observable, Evento {
 		
 		this.joined = state.setJoined(bool);
 		return this.joined;
+	}
+	
+	public void addEventToPartecipatingList(List<EventiUtenteBean> list) {
+		state.addEventToPartecipatingList(list);	
+	}
+	
+	public void addEventToActiveEventList(List<EventiUtenteBean> list) {
+		state.addEventToActiveEventList(list);
 	}
 	
 	/********************* NON CAMBIANO IMPLEMENTAZIONE IN BASE ALLO STATO *****************************************/

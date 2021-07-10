@@ -3,6 +3,8 @@ package logic.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.ingegnerizzazione.EventiUtenteBean;
+
 //Created event, not started yet
 
 
@@ -69,4 +71,16 @@ public class StatoIniziale extends AbstractState {
 		return new SvolgimentoEvento(evento);
 	}
 	
+	@Override
+	public void addEventToPartecipatingList(List<EventiUtenteBean> list) {
+		list.add(new EventiUtenteBean(evento.getNome(), evento.getDescrizione(), evento.getPremio(), evento.getInizio() , evento.getFine())); 
+		
+	}
+	
+	@Override
+	public void addEventToActiveEventList(List<EventiUtenteBean> list) {
+		EventiUtenteBean event = new EventiUtenteBean(evento.getNome(), evento.getDescrizione(),evento.getPremio(), evento.getInizio() , evento.getFine());
+		event.setRequisiti(Integer.toString(evento.getLivelloRichiesto()));
+		list.add(event);
+	}
 }

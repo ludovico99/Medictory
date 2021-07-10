@@ -27,7 +27,7 @@ public class ControllerPharmacyEvent{
 		for (EventoFarmacia e: eventi) {
 			infoPartecipanti = e.customersToAward(s.getUsername());
 			//controller behaves according to the state of the entity EVENT
-			if (infoPartecipanti != null && !infoPartecipanti.isEmpty()) {
+			if (infoPartecipanti != null && !infoPartecipanti.isEmpty() && e.getVincitore()==null) {
 				int dimensione = infoPartecipanti.size();
 			    int selected = r.nextInt(dimensione);
 				e.setChanged(true);
@@ -99,7 +99,8 @@ public class ControllerPharmacyEvent{
 		
 		ev = new EventoFarmacia(infoNome, infoDettagli, infoPremio, infoInizio, infoFine, livello);
 		
-		ev.setAddedRuntime(true);	
+		ev.setAddedRuntime(true);
+		if(sessione.getEventi()== null) sessione.setEventi(new ArrayList<>());
 		sessione.getEventi().add(ev);
 		return ev;
 	}

@@ -2,6 +2,8 @@ package logic.model;
 
 import java.util.List;
 
+import logic.ingegnerizzazione.EventiUtenteBean;
+
 public abstract class AbstractState/*State*/ {
 	protected Evento evento;
 	
@@ -21,6 +23,8 @@ public abstract class AbstractState/*State*/ {
 	 public abstract boolean setJoined(Boolean bool);
 	 public abstract boolean setDeleted(Boolean bool);
 	 public abstract AbstractState nextState();
+	 public abstract void addEventToPartecipatingList(List<EventiUtenteBean> list);
+	 public abstract void addEventToActiveEventList(List<EventiUtenteBean> list);
 
 
 	

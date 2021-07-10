@@ -2,6 +2,8 @@ package logic.model;
 
 import java.util.List;
 
+import logic.ingegnerizzazione.EventiUtenteBean;
+
 //Closed event
 
 public class FineEvento extends AbstractState{
@@ -73,6 +75,16 @@ public class FineEvento extends AbstractState{
     
 	@Override
 	public AbstractState nextState() {
-		return null;
+		return this;
+	}
+	
+	@Override
+	public void addEventToPartecipatingList(List<EventiUtenteBean> list) {
+		//un evento concluso non va mostrato negli eventi a cui un utente sta partecipando
+	}
+	
+	@Override
+	public void addEventToActiveEventList(List<EventiUtenteBean> list) {
+		//un evento concluso non va mostrato negli eventi a cui un utente può iscriversi
 	}
 }

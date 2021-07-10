@@ -3,6 +3,8 @@ package logic.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.ingegnerizzazione.EventiUtenteBean;
+
 //Ongoing event
 
 public class SvolgimentoEvento extends AbstractState{
@@ -66,6 +68,19 @@ public class SvolgimentoEvento extends AbstractState{
 	@Override
 	public AbstractState nextState() {
 		return new FineEvento(evento);
+	}
+	
+	@Override
+	public void addEventToPartecipatingList(List<EventiUtenteBean> list) {
+		list.add(new EventiUtenteBean(evento.getNome(), evento.getDescrizione(), evento.getPremio(), evento.getInizio() , evento.getFine())); 
+		
+	}
+	
+	@Override
+	public void addEventToActiveEventList(List<EventiUtenteBean> list) {
+		EventiUtenteBean event = new EventiUtenteBean(evento.getNome(), evento.getDescrizione(),evento.getPremio(), evento.getInizio() , evento.getFine());
+		event.setRequisiti(Integer.toString(evento.getLivelloRichiesto()));
+		list.add(event);
 	}
 
 }
