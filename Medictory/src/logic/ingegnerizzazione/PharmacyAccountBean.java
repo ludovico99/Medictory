@@ -11,11 +11,11 @@ public class PharmacyAccountBean {
 	
 	
 	public PharmacyAccountBean(SessioneFarmacia sessione) {
-		this.setUsername(sessione.getUsername());
-		this.setEmail(sessione.getEmail());
-		this.setNomeFarmacia(sessione.getNomeFarmacia());
-		this.setIndirizzo(sessione.getIndirizzo());
-		this.setNumeroClienti(Integer.toString(sessione.getClienti().size()));
+		this.username = (sessione.getUsername());
+		this.email = (sessione.getEmail());
+		this.nomeFarmacia= (sessione.getNomeFarmacia());
+		this.indirizzo = (sessione.getIndirizzo());
+		this.numeroClienti = (Integer.toString(sessione.getClienti().size()));
 	}
 
 
