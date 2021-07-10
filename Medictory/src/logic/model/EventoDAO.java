@@ -207,9 +207,7 @@ public class EventoDAO {
 	    	}
 	    	
 	    
-	    } catch (SQLException se) {
-	        se.printStackTrace();
-	    } catch (Exception e) {
+	    }catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
 	    	List<Statement> statements = new ArrayList<>();

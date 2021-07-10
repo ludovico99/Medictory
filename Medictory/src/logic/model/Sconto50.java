@@ -2,7 +2,6 @@ package logic.model;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Logger;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -22,19 +21,17 @@ public class Sconto50 extends Decorator {
 		Message mex = this.prem.premia();
 		try {
 			mex.setText(this.getMessageHeader() + randomSconto()+ ".\nLa Tua Farmacia");
-		} catch (MessagingException e1) {
-			e1.printStackTrace();
+		} catch (MessagingException ex) {
+			ex.printStackTrace();
 		}
 		
 		try {
 			Transport.send(mex);
-		} catch (MessagingException e) {
+		} catch (MessagingException exception) {
 			
-			e.printStackTrace();
+			exception.printStackTrace();
 		}
-		final Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-        log.info("TCP mandaa");
-        log.info("Sent message successfully....");
+		
             return mex;
 	}
 	

@@ -2,7 +2,6 @@ package logic.model;
 import javax.mail.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Logger;
 
 
 
@@ -34,10 +33,7 @@ public class Coupon extends Decorator {
 			
 			e.printStackTrace();
 		}
-		
-		final Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-        log.info("TCP mandaa");
-        log.info("Sent message successfully....");
+	
         return mex;
 
 		
