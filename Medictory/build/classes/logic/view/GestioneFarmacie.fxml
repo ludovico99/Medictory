@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcPharmacyAutentificazione">
+<AnchorPane style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.GcPharmacyVerifica">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -40,7 +40,7 @@
                         <Font name="Arial Nova" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ritiro" mnemonicParsing="false" onAction="#ritiroPressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Ritiro" textFill="WHITE">
+                  <Button fx:id="ritiro" mnemonicParsing="false" onAction="#ritiroPressedA" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Ritiro" textFill="WHITE">
                      <font>
                         <Font name="Arial Nova Light" size="15.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="risorse" mnemonicParsing="false" onAction="#risorsePressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Risorse" textFill="WHITE">
+                  <Button fx:id="risorse" mnemonicParsing="false" onAction="#risorsePressedA" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Risorse" textFill="WHITE">
                      <font>
                         <Font name="Arial Nova Light" size="15.0" />
                      </font>
@@ -64,7 +64,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="home" mnemonicParsing="false" onAction="#homePressed" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Home" textFill="WHITE">
+                  <Button fx:id="home" mnemonicParsing="false" onAction="#homePressedA" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Home" textFill="WHITE">
                      <font>
                         <Font name="Arial Nova Light" size="15.0" />
                      </font>

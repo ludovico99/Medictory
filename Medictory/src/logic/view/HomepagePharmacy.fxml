@@ -82,7 +82,7 @@
             <ColorAdjust brightness="1.0" />
          </effect>
       </ImageView>
-      <Button fx:id="ritiro" layoutX="184.0" layoutY="274.0" mnemonicParsing="false" onAction="#ritiroPressed" prefHeight="89.0" prefWidth="85.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
+      <Button fx:id="ritiro" layoutX="184.0" layoutY="274.0" mnemonicParsing="false" onAction="#ritiroPressedH" prefHeight="89.0" prefWidth="85.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
          <font>
             <Font name="Arial Nova Light" size="12.0" />
          </font>
@@ -90,7 +90,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="gestione" layoutX="322.0" layoutY="278.0" mnemonicParsing="false" onAction="#gestionePressed" prefHeight="77.0" prefWidth="98.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
+      <Button fx:id="gestione" layoutX="322.0" layoutY="278.0" mnemonicParsing="false" onAction="#gestionePressedH" prefHeight="77.0" prefWidth="98.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
          <font>
             <Font name="Arial Nova Light" size="12.0" />
          </font>
@@ -106,7 +106,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="eventi" alignment="CENTER" layoutX="338.0" layoutY="32.0" mnemonicParsing="false" onAction="#eventiPressed" prefHeight="89.0" prefWidth="85.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
+      <Button fx:id="eventi" alignment="CENTER" layoutX="338.0" layoutY="32.0" mnemonicParsing="false" onAction="#eventiPressedH" prefHeight="89.0" prefWidth="85.0" style="-fx-background-color: #00000000; -fx-cursor: hand;" textFill="WHITE">
          <font>
             <Font name="Arial Nova Light" size="12.0" />
          </font>

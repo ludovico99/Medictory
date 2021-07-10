@@ -43,19 +43,19 @@ public class GcPharmacyHomepage implements GraphicController{
 	}
 	
 	@FXML
-	public void eventiPressed(ActionEvent event) {
+	public void eventiPressedH(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "PharmacyEvent.fxml");
 	}
 	
 	@FXML
-	public void gestionePressed(ActionEvent event) {
+	public void gestionePressedH(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "GestioneFarmacie.fxml");
 	}
 	
 	@FXML
-	public void ritiroPressed(ActionEvent event) {
+	public void ritiroPressedH(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "FarmaciaAppuntamento.fxml");
 		
