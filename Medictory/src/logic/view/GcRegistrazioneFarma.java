@@ -45,7 +45,7 @@ public class GcRegistrazioneFarma {
 	
 	
 	@FXML
-	public void xPressed(ActionEvent event) {
+	public void xPressedF(ActionEvent event) {
 		
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "progetto.fxml");

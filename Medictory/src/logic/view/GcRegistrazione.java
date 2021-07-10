@@ -59,7 +59,7 @@ public class GcRegistrazione {
 	}
 	
 	@FXML
-	public void xPressed(ActionEvent event) {
+	public void xPressedCl(ActionEvent event) {
 		
         Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		setPrimaryStage(primaryStage, "progetto.fxml");

@@ -103,7 +103,7 @@
                   <ColorAdjust brightness="1.0" />
                </effect>
             </ImageView>
-            <Button layoutX="560.0" layoutY="13.0" mnemonicParsing="false" onAction="#xPressed" opacity="0.0" prefHeight="15.0" prefWidth="4.0" text="Button" fx:id="x">
+            <Button layoutX="560.0" layoutY="13.0" mnemonicParsing="false" onAction="#xPressedCl" opacity="0.0" prefHeight="15.0" prefWidth="4.0" text="Button" fx:id="x">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

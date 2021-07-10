@@ -54,17 +54,17 @@ public class GcCustomerAppuntamento implements GraphicController {
 	
 	private ControllerCustomerAppuntamento controller = new ControllerCustomerAppuntamento();
 
-	private void setPrimaryStage(Stage primaryStage, String file) {
+	private void setPrimaryStageC(Stage stage, String file) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-			Parent root = loader.load();
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(file));
+			Parent parent = fxmlLoader.load();
 			
-			GraphicController controllerNext = loader.getController();
-			controllerNext.setData(sessione);
+			GraphicController controllerNx = fxmlLoader.getController();
+			controllerNx.setData(sessione);
 			
-			primaryStage.setTitle("Medictory");
-			primaryStage.setScene(new Scene(root, 600,400));
-			primaryStage.show();
+			stage.setTitle("Medictory");
+			stage.setScene(new Scene(parent, 600,400));
+			stage.show();
 			
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -73,47 +73,42 @@ public class GcCustomerAppuntamento implements GraphicController {
 	}
 	
 	
-	@FXML
-	public void xPressed(ActionEvent event) {
-		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
-		setPrimaryStage(primaryStage, "CustomerRiciclaggio.fxml");
-		
-	}
 	
 	@FXML
 	public void risorsePressed(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
-		setPrimaryStage(primaryStage, "Risorse.fxml");
+		setPrimaryStageC(primaryStage, "Risorse.fxml");
 		
 	}
 	
 	@FXML
 	public void riciclaggioPressed(ActionEvent event) {
-		this.xPressed(event);
+		this.annullaPressed(event);
 		
 	}
 
 	@FXML
 	public void eventiPressed(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
-		setPrimaryStage(primaryStage, "CustomerMyEvent.fxml");
+		setPrimaryStageC(primaryStage, "CustomerMyEvent.fxml");
 	}
 	
 	@FXML
 	public void accountPressed(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
-		setPrimaryStage(primaryStage, "CustomerAccount.fxml");
+		setPrimaryStageC(primaryStage, "CustomerAccount.fxml");
 	}
 	
 	@FXML
 	public void homePressed(ActionEvent event) {
 		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
-		setPrimaryStage(primaryStage, "HomepageClient.fxml");
+		setPrimaryStageC(primaryStage, "HomepageClient.fxml");
 	}
 	
 	@FXML
 	public void annullaPressed(ActionEvent event) {
-		this.xPressed(event);
+		Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
+		setPrimaryStageC(primaryStage, "CustomerRiciclaggio.fxml");
 	}
 
 	@FXML
