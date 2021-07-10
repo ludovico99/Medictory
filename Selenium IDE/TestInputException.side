@@ -1,0 +1,160 @@
+{
+  "id": "886c5a08-34de-44cd-b59c-ac4d1980f561",
+  "version": "2.0",
+  "name": "Medictory",
+  "url": "http://localhost:8080/Medictory/",
+  "tests": [{
+    "id": "5f193594-5577-4800-af33-3f758870418b",
+    "name": "Medictory_TestInputException",
+    "commands": [{
+      "id": "e5ee12f9-df03-435a-850f-184e7528e090",
+      "comment": "",
+      "command": "open",
+      "target": "/Medictory/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57248d9e-9582-48c4-8c35-6564e96ff740",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "697x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce08912a-e07d-48af-b730-2c9da341f232",
+      "comment": "",
+      "command": "click",
+      "target": "id=signIn",
+      "targets": [
+        ["id=signIn", "id"],
+        ["css=#signIn", "css:finder"],
+        ["xpath=//button[@id='signIn']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "894fcb52-4b91-471b-90e0-5204bc009c6c",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.sign-in-container input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1a07027-1a79-4080-80e9-88515ffbf27b",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.sign-in-container input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input", "xpath:position"]
+      ],
+      "value": "keska"
+    }, {
+      "id": "80d0b51c-ced6-4d7d-8d33-98639e245c65",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.sign-in-container input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div[2]/form/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3f31b5c-568e-4ea2-bcfb-1fdff46cc794",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.sign-in-container input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div[2]/form/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input[2]", "xpath:position"]
+      ],
+      "value": "keska"
+    }, {
+      "id": "91aef50d-ab4f-443b-b019-c9d6894a9cd9",
+      "comment": "",
+      "command": "click",
+      "target": "name=login",
+      "targets": [
+        ["name=login", "name"],
+        ["css=button:nth-child(5)", "css:finder"],
+        ["xpath=//button[@name='login']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3149dfb-fb36-47e8-95dd-560cf56bb0de",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hexagon-item:nth-child(3) .title",
+      "targets": [
+        ["css=.hexagon-item:nth-child(3) .title", "css:finder"],
+        ["xpath=//div[3]/a/span/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6561535-6468-45e8-a857-7f05cafa427f",
+      "comment": "",
+      "command": "click",
+      "target": "name=crea",
+      "targets": [
+        ["name=crea", "name"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@name='crea']", "xpath:attributes"],
+        ["xpath=//form[@id='contact-form']/span/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f1ff30e-5af5-4bb2-9fd8-dbf70acd18b8",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='container']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'ERRORE')]", "xpath:innerText"]
+      ],
+      "value": "ERRORE"
+    }, {
+      "id": "83bee6cf-cdf9-4925-84fd-b246fa75ad58",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='container']/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Non hai inserito tutti i parametri')]", "xpath:innerText"]
+      ],
+      "value": "Non hai inserito tutti i parametri"
+    }]
+  }],
+  "suites": [{
+    "id": "a6d8504c-3de0-4e66-a01f-f7e8245e9207",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5f193594-5577-4800-af33-3f758870418b"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/Medictory/"],
+  "plugins": []
+}
