@@ -46,12 +46,12 @@ public class EventoDAO {
 		    	} while(rs.next());
 		    	rs.close();
 		    	}
-			 } catch (SQLException se) {
+			 } catch (SQLException sqlExc) {
 			        // Errore durante l'apertura della connessione
-			        se.printStackTrace();
-			    } catch (Exception e) {
+				 sqlExc.printStackTrace();
+			    } catch (Exception exc) {
 			        // Errore nel loading del driver
-			        e.printStackTrace();
+			    	exc.printStackTrace();
 			    } finally {
 			    	List<Statement> statements = new ArrayList<>();
 		        	statements.add(stmt);
@@ -105,12 +105,9 @@ public class EventoDAO {
 				 }
 			 }
 		    	
-		    } catch (SQLException se) {
-		        // Errore durante l'apertura della connessione
-		        se.printStackTrace();
-		    } catch (Exception e) {
+		    } catch (Exception ex) {
 		        // Errore nel loading del driver
-		        e.printStackTrace();
+		    	ex.printStackTrace();
 		    } finally {
 		    	List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmt);
@@ -144,10 +141,7 @@ public class EventoDAO {
 				 }
 			 }
 		    	
-		    } catch (SQLException se) {
-		        // Errore durante l'apertura della connessione
-		        se.printStackTrace();
-		    } catch (Exception e) {
+		    }  catch (Exception e) {
 		        // Errore nel loading del driver
 		        e.printStackTrace();
 		    } finally {
@@ -207,8 +201,8 @@ public class EventoDAO {
 	    	}
 	    	
 	    
-	    }catch (Exception e) {
-	        e.printStackTrace();
+	    }catch (Exception exception) {
+	    	exception.printStackTrace();
 	    } finally {
 	    	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
@@ -258,8 +252,8 @@ public class EventoDAO {
 	     	} while(rs.next());
 	     	rs.close();
 	     	}
-	     } catch (Exception e) {
-	         e.printStackTrace();
+	     } catch (Exception i) {
+	         i.printStackTrace();
 	     }finally {
 	    	 List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmt);
