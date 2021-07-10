@@ -3,6 +3,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.ingegnerizzazione.ConnectionClose;
+
 
 public class ClienteDAO {
 	private static AbstractFactory factory = new FactoryElementoUtente();
@@ -43,14 +45,8 @@ public class ClienteDAO {
 		        // Errore nel loading del driver
 		        e.printStackTrace();
 		    } finally {
-		    	 if (stmt != null) {
-		                try{   
-		                    stmt.close();
-		                } catch (SQLException se) {
-		                    se.printStackTrace();
-		                }
-		            }
-		    }	
+		    	ConnectionClose.closeAConnection(conn, stmt);
+		    }
 	}
 	
 	
@@ -173,21 +169,10 @@ public class ClienteDAO {
 
 	        
 	    
-	    } catch (SQLException se) {
-	        // Errore durante l'apertura della connessione
-	        se.printStackTrace();
-	    } catch (Exception e) {
-	        // Errore nel loading del driver
-	        e.printStackTrace();
+	    }catch (Exception e) {
+	       e.printStackTrace();
 	    } finally {
-	        
-	    	try {
-	            if (stmt != null)
-	                stmt.close();
-	            conn.close();
-	        } catch (SQLException se) {
-	            se.printStackTrace();
-	        }
+	    	ConnectionClose.closeAConnection(conn, stmt);
 	    }
 	    return clienti;
 	}
@@ -286,13 +271,7 @@ public class ClienteDAO {
             // Errore nel loading del driver
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+        	ConnectionClose.closeAConnection(conn, stmt);
         }
         return dati;
 	}
