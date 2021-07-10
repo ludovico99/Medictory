@@ -45,7 +45,10 @@ public class ClienteDAO {
 		        // Errore nel loading del driver
 		        e.printStackTrace();
 		    } finally {
-		    	ConnectionClose.closeAConnection(conn, stmt);
+		    	List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+	       	
+	        	ConnectionClose.closeConnections(conn, statements);
 		    }
 	}
 	
@@ -92,39 +95,13 @@ public class ClienteDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-        	try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-            if (stmt != null) {
-                try{   
-                    stmt.close();
-                } catch (SQLException se) {
-                    se.printStackTrace();
-                }
-            }
-            if (stmtA != null) {
-                try{   
-                    stmtA.close();
-                } catch (SQLException se) {
-                    se.printStackTrace();
-                }
-            }
-            if (stmtB != null) {
-                try{   
-                    stmtB.close();
-                } catch (SQLException se) {
-                    se.printStackTrace();
-                }
-            }
-            if (stmtC != null) {
-                try{   
-                    stmtC.close();
-                } catch (SQLException se) {
-                    se.printStackTrace();
-                }
-            }
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+        	statements.add(stmtA);
+        	statements.add(stmtB);
+        	statements.add(stmtC);
+        	
+        	ConnectionClose.closeConnections(conn, statements);
         }
         return null;
 	}
@@ -172,7 +149,10 @@ public class ClienteDAO {
 	    }catch (Exception e) {
 	       e.printStackTrace();
 	    } finally {
-	    	ConnectionClose.closeAConnection(conn, stmt);
+	    	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+       	
+        	ConnectionClose.closeConnections(conn, statements);
 	    }
 	    return clienti;
 	}
@@ -271,7 +251,10 @@ public class ClienteDAO {
             // Errore nel loading del driver
             e.printStackTrace();
         } finally {
-        	ConnectionClose.closeAConnection(conn, stmt);
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+        	
+        	ConnectionClose.closeConnections(conn, statements);
         }
         return dati;
 	}

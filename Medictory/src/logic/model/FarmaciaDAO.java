@@ -3,6 +3,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.ingegnerizzazione.ConnectionClose;
+
 
 public class FarmaciaDAO {
 	private static Connector connector = Connector.getConnectorInstance();
@@ -53,40 +55,13 @@ public class FarmaciaDAO {
         }catch (Exception e) {
         	e.printStackTrace();
         } finally {
-        	try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-        	 if (stmt != null) {
-                 try{   
-                     stmt.close();
-                 } catch (SQLException se) {
-                     se.printStackTrace();
-                 }
-             }
-             if (stmt2 != null) {
-                 try{   
-                     stmt2.close();
-                 } catch (SQLException se) {
-                     se.printStackTrace();
-                 }
-             }
-             if (stmt3 != null) {
-                 try{   
-                     stmt3.close();
-                 } catch (SQLException se) {
-                     se.printStackTrace();
-                 }
-             }
-             if (stmt4 != null) {
-                 try{   
-                     stmt4.close();
-                 } catch (SQLException se) {
-                     se.printStackTrace();
-                 }
-                 
-             }
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+        	statements.add(stmt2);
+        	statements.add(stmt3);
+        	statements.add(stmt4);
+        	
+        	ConnectionClose.closeConnections(conn, statements);
         }
         return null;
 	}
@@ -121,13 +96,10 @@ public class FarmaciaDAO {
             // Errore nel loading del driver
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+    	
+        	ConnectionClose.closeConnections(conn, statements);
         }
        
 		return quantitativo;
@@ -174,13 +146,10 @@ public class FarmaciaDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+        	
+        	ConnectionClose.closeConnections(conn, statements);
         }
         return f;
 	}
@@ -228,13 +197,10 @@ public class FarmaciaDAO {
        		// Errore nel loading del driver
        		e.printStackTrace();
        	} finally {
-       		try {
-       			if (stmt != null)
-       				stmt.close();
-       			conn.close();
-       		} catch (SQLException se) {
-       			se.printStackTrace();
-       		}
+       		List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+
+        	ConnectionClose.closeConnections(conn, statements);
        	}
        return list;
 	}

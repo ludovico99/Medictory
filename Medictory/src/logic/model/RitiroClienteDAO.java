@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.ingegnerizzazione.ConnectionClose;
+
 public class RitiroClienteDAO {
 
 	private static Connector connector = Connector.getConnectorInstance();
@@ -41,13 +43,10 @@ public class RitiroClienteDAO {
             // Errore nel loading del driver
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+
+        	ConnectionClose.closeConnections(conn, statements);
         }
         return null;
 	}
@@ -92,13 +91,10 @@ public class RitiroClienteDAO {
             // Errore nel loading del driver
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+
+        	ConnectionClose.closeConnections(conn, statements);
         }
 		return ritiri;
 	}

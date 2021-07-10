@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import logic.ingegnerizzazione.ConnectionClose;
+
 public class EventoDAO {
 	private static Connector connector = Connector.getConnectorInstance();
 	private static String descrizioneString = "descrizione";
@@ -51,13 +53,10 @@ public class EventoDAO {
 			        // Errore nel loading del driver
 			        e.printStackTrace();
 			    } finally {
-			        try {
-			            if (stmt != null)
-			                stmt.close();
-			           conn.close();
-			        } catch (SQLException se) {
-			            se.printStackTrace();
-			        }
+			    	List<Statement> statements = new ArrayList<>();
+		        	statements.add(stmt);
+        	
+		        	ConnectionClose.closeConnections(conn, statements);
 			    }
 		 return clienti;
 	}
@@ -113,13 +112,10 @@ public class EventoDAO {
 		        // Errore nel loading del driver
 		        e.printStackTrace();
 		    } finally {
-		    	 if (stmt != null) {
-		                try{   
-		                    stmt.close();
-		                } catch (SQLException se) {
-		                    se.printStackTrace();
-		                }
-		            }
+		    	List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+	        	
+	        	ConnectionClose.closeConnections(conn, statements);
 		    }		
 	}
 		
@@ -155,13 +151,10 @@ public class EventoDAO {
 		        // Errore nel loading del driver
 		        e.printStackTrace();
 		    } finally {
-		    	 if (stmt != null) {
-		                try{   
-		                    stmt.close();
-		                } catch (SQLException se) {
-		                    se.printStackTrace();
-		                }
-		            }
+		    	List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+	            	
+	        	ConnectionClose.closeConnections(conn, statements);
 		    }
 		  
 	}
@@ -219,13 +212,10 @@ public class EventoDAO {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
-	    	 if (stmt != null) {
-	                try{   
-	                    stmt.close();
-	                } catch (SQLException se) {
-	                    se.printStackTrace();
-	                }
-	            }
+	    	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+        	
+        	ConnectionClose.closeConnections(conn, statements);
 	    }
 	    return eventi;
 	}
@@ -273,13 +263,9 @@ public class EventoDAO {
 	     } catch (Exception e) {
 	         e.printStackTrace();
 	     }finally {
-	    	 if (stmt != null) {
-	                try{   
-	                    stmt.close();
-	                } catch (SQLException se) {
-	                    se.printStackTrace();
-	                }
-	            }
+	    	 List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+	        	ConnectionClose.closeConnections(conn, statements);
 	     }
 	     return eventi;
 	}
@@ -337,13 +323,10 @@ public class EventoDAO {
 	            // Errore nel loading del driver
 	            e.printStackTrace();
 	        } finally {
-	            try {
-	                if (stmt != null)
-	                    stmt.close();
-	                conn.close();
-	            } catch (SQLException se) {
-	                se.printStackTrace();
-	            }
+	        	List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+	        	
+	        	ConnectionClose.closeConnections(conn, statements);
 	        }
 	        return eventi;
 		}	

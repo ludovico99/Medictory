@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.ingegnerizzazione.ConnectionClose;
+
 public class FarmacoFarmaciaDAO {
 	
 	private static AbstractFactory factory = new FactoryElementoFarmacia();
@@ -48,18 +50,10 @@ public class FarmacoFarmaciaDAO {
 		    } catch (Exception e) {
 		        e.printStackTrace();
 		    } finally {
-		    	if (stmt != null) {
-	                try{   
-	                    stmt.close();
-	                } catch (SQLException se) {
-	                    se.printStackTrace();
-	                }
-	            }
-		    	try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+		    	List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+ 	
+	        	ConnectionClose.closeConnections(conn, statements);
 		    }
 	}
 	
@@ -97,13 +91,10 @@ public class FarmacoFarmaciaDAO {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
-	        try {
-	            if (stmt != null)
-	                stmt.close();
-	            conn.close();
-	        } catch (SQLException se) {
-	            se.printStackTrace();
-	        }
+	    	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+ 	
+        	ConnectionClose.closeConnections(conn, statements);
 	    }
 	    return farmaci;
 	}
@@ -133,14 +124,10 @@ public class FarmacoFarmaciaDAO {
 		        // Errore nel loading del driver
 		        e.printStackTrace();
 		    } finally {
-		        try {
-		            if (stmt != null)
-		                stmt.close();
-		   
-		            conn.close();
-		        } catch (SQLException se) {
-		            se.printStackTrace();
-		        }
+		    	List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+
+	        	ConnectionClose.closeConnections(conn, statements);
 		    }
 	}
 	

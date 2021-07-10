@@ -3,6 +3,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.ingegnerizzazione.ConnectionClose;
+
 
 
 public class FarmacoClienteDAO {
@@ -50,15 +52,11 @@ public class FarmacoClienteDAO {
 		        // Errore nel loading del driver
 		        e.printStackTrace();
 		    } finally {
-		    	try {
-		            if (stmt != null)
-		                stmt.close();
-		           conn.close();
-		        } catch (SQLException se) {
-		            se.printStackTrace();
-		        }
+		    	List<Statement> statements = new ArrayList<>();
+	        	statements.add(stmt);
+	        
+	        	ConnectionClose.closeConnections(conn, statements);
 		    }
-		  
 	}
 	
 	public static List<FarmacoCliente> myFarmaciCliente(String username) {
@@ -101,13 +99,10 @@ public class FarmacoClienteDAO {
             // Errore nel loading del driver
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+        	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+
+        	ConnectionClose.closeConnections(conn, statements);
         }
 		return farmaci;
 	}
@@ -141,18 +136,10 @@ public class FarmacoClienteDAO {
 	            // Errore nel loading del driver
 	        e.printStackTrace();
 	    } finally {
-	    	try {
-	    		if (stmt != null)
-	    			stmt.close();
-	    	} catch (SQLException se2) {
-	    		se2.printStackTrace();
-	        }
-	    	try {
-	    		if (conn != null)
-	    		   conn.close();
-	        } catch (SQLException se) {
-	               se.printStackTrace();
-	        }
+	    	List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+       	
+        	ConnectionClose.closeConnections(conn, statements);
 	    }
 	}
 	
@@ -184,13 +171,10 @@ public class FarmacoClienteDAO {
             // Errore nel loading del driver
 			e.printStackTrace();
 		} finally {
-			try {
-				if (stmt != null)
-					stmt.close();
-				conn.close();
-			} catch (SQLException se) {
-				se.printStackTrace();
-			}
+			List<Statement> statements = new ArrayList<>();
+        	statements.add(stmt);
+        		
+        	ConnectionClose.closeConnections(conn, statements);
 		}
 	}
 		
