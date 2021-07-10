@@ -157,34 +157,34 @@ public class EventoDAO {
 		 List <EventoFarmacia> eventi = null;
 		 Connection conn= connector.getConnection();
 		 Date oggi = new Date();
-		 Statement stmt = null;
+		 Statement stmtEventiFarmacia = null;
 		
 	 
 	    try {
 	    	
-	    	String sql = "SELECT E.`nome`, E.`descrizione`, E.`inizio`, E.`fine`, E.`premio`, E.`livello richiesto`, E.`vincitore` FROM `Evento` E  WHERE  E.`farmacia`='" + username + "';";
+	    	String sqlEventiFarmacia = "SELECT E.`nome`, E.`descrizione`, E.`inizio`, E.`fine`, E.`premio`, E.`livello richiesto`, E.`vincitore` FROM `Evento` E  WHERE  E.`farmacia`='" + username + "';";
 	    	
 	    	
-	        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+	        stmtEventiFarmacia = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 	
-	        ResultSet rs = stmt.executeQuery(sql);
+	        ResultSet rsEventiFarmacia = stmtEventiFarmacia.executeQuery(sqlEventiFarmacia);
 	
-	    	if (rs.first()) {
-	    		rs.first();
+	    	if (rsEventiFarmacia.first()) {
+	    		rsEventiFarmacia.first();
 	    		eventi = new ArrayList<>();
 	    	do {
 	    		 
-	    		EventoFarmacia ev = new EventoFarmacia(rs.getString("nome"),rs.getString(descrizioneString),rs.getString(premioString),(rs.getDate(inizioString)).toString(), (rs.getDate("fine")).toString(), rs.getInt(livelloRichiestoString));
+	    		EventoFarmacia ev = new EventoFarmacia(rsEventiFarmacia.getString("nome"),rsEventiFarmacia.getString(descrizioneString),rsEventiFarmacia.getString(premioString),(rsEventiFarmacia.getDate(inizioString)).toString(), (rsEventiFarmacia.getDate("fine")).toString(), rsEventiFarmacia.getInt(livelloRichiestoString));
 	    			
 	    		SimpleDateFormat sdf = new  SimpleDateFormat(dateString);
-	    		Date inizio = sdf.parse((rs.getDate(inizioString)).toString());
-	    		Date fine = sdf.parse((rs.getDate("fine")).toString());
+	    		Date inizio = sdf.parse((rsEventiFarmacia.getDate(inizioString)).toString());
+	    		Date fine = sdf.parse((rsEventiFarmacia.getDate("fine")).toString());
 	    		if (inizio.before(oggi))
 	    			ev.nextState();
 	    			
 	    		if (fine.before(oggi)) { 
 	    			ev.nextState();
-	    			ev.setWinner(rs.getString("vincitore"));
+	    			ev.setWinner(rsEventiFarmacia.getString("vincitore"));
 	    			
 	    			//trovo i partecipanti solo per gli eventi che non hanno un vincitore 
 	    			//e che quindi devono ancora effettuare la premiazione
@@ -196,8 +196,8 @@ public class EventoDAO {
 	    		}
 	    	
 	    	  eventi.add(ev);
-	    	} while(rs.next());
-	    	rs.close();
+	    	} while(rsEventiFarmacia.next());
+	    	rsEventiFarmacia.close();
 	    	}
 	    	
 	    
@@ -205,7 +205,7 @@ public class EventoDAO {
 	    	exception.printStackTrace();
 	    } finally {
 	    	List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+        	statements.add(stmtEventiFarmacia);
         	
         	ConnectionClose.closeConnections(conn, statements);
 	    }
@@ -217,7 +217,7 @@ public class EventoDAO {
 		 List <EventoCliente> eventi = null;
 		 Connection conn= connector.getConnection();
 		 Date oggi = new Date();
-		 Statement stmt = null;
+		 Statement stmtMyevents = null;
 		
 	  
 	     try {
@@ -225,38 +225,38 @@ public class EventoDAO {
 	     	String sql="SELECT A.`evento`, E.`descrizione`, E.`inizio`,E.`fine`, E.`premio`, E.`livello richiesto`, E.`vincitore` FROM `Adesioni evento` A JOIN `Evento` E ON E.`nome`=A.`evento` and E.`Farmacia`= A.`Organizzatore` WHERE  A.`cliente`='" + username + "';";
 	     	
 	     	
-	         stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+	         stmtMyevents = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 	
-	         ResultSet rs = stmt.executeQuery(sql);
+	         ResultSet rsMyEVents = stmtMyevents.executeQuery(sql);
 	
-	     	if (rs.first()) {
-	     		rs.first();
+	     	if (rsMyEVents.first()) {
+	     		rsMyEVents.first();
 	     		eventi = new ArrayList<>();
 	     	do {
 	     		 
-	     	   	EventoCliente ev = new EventoCliente(rs.getString("evento"),rs.getString(descrizioneString),rs.getString(premioString),(rs.getDate(inizioString)).toString(), (rs.getDate("fine")).toString(), rs.getInt(livelloRichiestoString));
+	     	   	EventoCliente evCliente = new EventoCliente(rsMyEVents.getString("evento"),rsMyEVents.getString(descrizioneString),rsMyEVents.getString(premioString),(rsMyEVents.getDate(inizioString)).toString(), (rsMyEVents.getDate("fine")).toString(), rsMyEVents.getInt(livelloRichiestoString));
 	     	   
 	     		   
 	     		 
 	   			SimpleDateFormat sdf = new  SimpleDateFormat(dateString);
-	   			Date inizio = sdf.parse((rs.getDate(inizioString)).toString());
-	   			Date fine = sdf.parse((rs.getDate("fine")).toString());
-	   			if (inizio.before(oggi))
-	   				ev.nextState();
+	   			Date dataInizio = sdf.parse((rsMyEVents.getDate(inizioString)).toString());
+	   			Date dataFine = sdf.parse((rsMyEVents.getDate("fine")).toString());
+	   			if (dataInizio.before(oggi))
+	   				evCliente.nextState();
 	   			
-	   			if (fine.before(oggi)) 
-	   				ev.nextState();
+	   			if (dataFine.before(oggi)) 
+	   				evCliente.nextState();
 	   			
 	     	   	
-	     	   	eventi.add(ev);
-	     	} while(rs.next());
-	     	rs.close();
+	     	   	eventi.add(evCliente);
+	     	} while(rsMyEVents.next());
+	     	rsMyEVents.close();
 	     	}
 	     } catch (Exception i) {
 	         i.printStackTrace();
 	     }finally {
 	    	 List<Statement> statements = new ArrayList<>();
-	        	statements.add(stmt);
+	        	statements.add(stmtMyevents);
 	        	ConnectionClose.closeConnections(conn, statements);
 	     }
 	     return eventi;

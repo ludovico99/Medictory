@@ -104,7 +104,7 @@ public class FarmacoClienteDAO {
 	
 	public static void scriviFarmacoClienteNelDb(FarmacoCliente farmaco, String possessore) {
 
-		Statement stmt = null;
+		Statement stmtFarmacoCliente = null;
 		Connection conn= connector.getConnection();
 		
 
@@ -115,25 +115,22 @@ public class FarmacoClienteDAO {
 	        		"' and `descrizione` = '" + farmaco.getDescrizione() + "'and `scadenza`='" + farmaco.getScadenza() + "'and `possessore`='"+ possessore +"';";
 	    
 	     
-	        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);       
+	        stmtFarmacoCliente = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);       
 	            
-	        stmt.executeUpdate(sql);
+	        stmtFarmacoCliente.executeUpdate(sql);
 	            
 	        
-	        stmt.close();
+	        stmtFarmacoCliente.close();
 	        conn.close();
 	        
-		} catch (SQLException se) {
-	            // Errore durante l'apertura della connessione
-			se.printStackTrace();
-	    } catch (Exception e) {
+		} catch (Exception exFarmacoCliente) {
 	            // Errore nel loading del driver
-	        e.printStackTrace();
+			exFarmacoCliente.printStackTrace();
 	    } finally {
-	    	List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+	    	List<Statement> statementsFarmacoCliente = new ArrayList<>();
+        	statementsFarmacoCliente.add(stmtFarmacoCliente);
        	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeConnections(conn, statementsFarmacoCliente);
 	    }
 	}
 	
@@ -141,7 +138,7 @@ public class FarmacoClienteDAO {
 	
 	public static void cambiaStato(String farmaco, String possessore, String scadenza, String stato) {
 		
-		Statement stmt = null;
+		Statement statementFarmacoCliente = null;
 		Connection conn= connector.getConnection();
 		
 		try {
@@ -150,25 +147,22 @@ public class FarmacoClienteDAO {
 	        		"' and `scadenza` = '" + scadenza + "' and `possessore`='"+ possessore +"';";
 	    
 	     
-	        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);       
+	        statementFarmacoCliente = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);       
 	            
-	        stmt.executeUpdate(sql);
+	        statementFarmacoCliente.executeUpdate(sql);
 	            
 	        
-	        stmt.close();
+	        statementFarmacoCliente.close();
 	        conn.close();
 		
-		} catch (SQLException se) {
-            // Errore durante l'apertura della connessione
-			se.printStackTrace();
-		} catch (Exception e) {
-            // Errore nel loading del driver
-			e.printStackTrace();
+		} catch (Exception eFarmacoCliente) {
+            
+			eFarmacoCliente.printStackTrace();
 		} finally {
-			List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+			List<Statement> stmtsFarmacoCliente = new ArrayList<>();
+			stmtsFarmacoCliente.add(statementFarmacoCliente);
         		
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeConnections(conn, stmtsFarmacoCliente);
 		}
 	}
 		
