@@ -1,41 +1,47 @@
 package logic.ingegnerizzazione;
 
 public class RiciclaggioUtenteBean {
-	private String farmaco;
-	private String descrizione;
-	private String quantitativo;
+	private String drug;
+	private String detail;
+	private String amount;
 	
 	
 	public RiciclaggioUtenteBean(String f, String d, int q) {
-		this.farmaco = f;
-		this.quantitativo = Integer.toString(q);
-		this.descrizione = d;
+		this.drug = f;
+		this.amount = Integer.toString(q);
+		this.detail = d;
 	}
 	
 	public RiciclaggioUtenteBean(String f, String d, String q) {
-		this.farmaco = f;
-		this.quantitativo = q;
-		this.descrizione = d;
+		this.drug = f;
+		this.amount = q;
+		this.detail = d;
 	}
 	
 	
-	public String getFarmaco() {
-		return farmaco;
+	public String getDrug() {
+		return drug;
 	}
-	public void setFarmaco(String farmaco) {
-		this.farmaco = farmaco;
+	
+	public void setDrug(String farmaco) {
+		this.drug = farmaco;
 	}
-	public String getDescrizione() {
-		return descrizione;
+	
+	public String getDetail() {
+		return detail;
 	}
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+	
+	public void setDetail(String descrizione) {
+		this.detail = descrizione;
 	}
-	public String getQuantitativo() {
-		return quantitativo;
+	
+	public String getAmount() {
+		return amount;
 	}
-	public void setQuantitativo(String quantita) {
-		this.quantitativo = quantita;
+	
+	public void setAmount(String quantita) {
+		this.amount = quantita;
 	}
+	
 }
 	

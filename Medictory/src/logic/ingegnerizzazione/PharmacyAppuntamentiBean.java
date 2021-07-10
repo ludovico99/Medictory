@@ -7,8 +7,8 @@ public class PharmacyAppuntamentiBean {
 	
     private String utente;
     private String email;
-    private String citta;
-    private String indirizzo;
+    private String city;
+    private String address;
     private LocalDate data;
     
 	
@@ -17,15 +17,15 @@ public class PharmacyAppuntamentiBean {
 	public PharmacyAppuntamentiBean(String username, String email, String citta, String indirizzo, LocalDate data) {
 		this.utente = username;
 		this.email = email;
-		this.citta = citta;
-		this.indirizzo = indirizzo;
+		this.city = citta;
+		this.address = indirizzo;
 		this.data = data;
 	}
 	
 	public PharmacyAppuntamentiBean(RitiroCliente c) {
 		this.utente= c.getNome();
-		this.citta = c.getCitta();
-		this.indirizzo = c.getIndirizzo();
+		this.city = c.getCitta();
+		this.address = c.getIndirizzo();
 		this.email = c.getEmail();
 		this.data = c.getData();
 	}
@@ -51,23 +51,23 @@ public class PharmacyAppuntamentiBean {
 	}
 
 
-	public String getCitta() {
-		return citta;
+	public String getCity() {
+		return city;
+	}
+	
+
+	public void setCity(String citta) {
+		this.city = citta;
 	}
 
 
-	public void setCitta(String citta) {
-		this.citta = citta;
+	public String getAddress() {
+		return address;
 	}
 
 
-	public String getIndirizzo() {
-		return indirizzo;
-	}
-
-
-	public void setIndirizzo(String indirizzo) {
-		this.indirizzo = indirizzo;
+	public void setAddress(String indirizzo) {
+		this.address = indirizzo;
 	}
 
 

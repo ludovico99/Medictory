@@ -2,31 +2,39 @@ package logic.ingegnerizzazione;
 
 public class RegistrazioneCustomerBean {
 	
-	private String username;
-    private String password;
-    private String email;
+	private String nomeUtente;
+    private String pwd;
+    private String emailAddress;
     private String farmaciaAssociata;
-	public String getUsername() {
-		return username;
+    
+	public String getNomeUtente() {
+		return nomeUtente;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	
+	public void setNomeUtente(String username) {
+		this.nomeUtente = username;
 	}
-	public String getPassword() {
-		return password;
+	
+	public String getPwd() {
+		return pwd;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	
+	public void setPwd(String password) {
+		this.pwd = password;
 	}
-	public String getEmail() {
-		return email;
+	
+	public String getEmailAddress() {
+		return emailAddress;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	
+	public void setEmailAddress(String email) {
+		this.emailAddress = email;
 	}
+	
 	public String getFarmaciaAssociata() {
 		return farmaciaAssociata;
 	}
+	
 	public void setFarmaciaAssociata(String farmaciaAssociata) {
 		this.farmaciaAssociata = farmaciaAssociata;
 	}
