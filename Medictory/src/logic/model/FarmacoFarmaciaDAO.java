@@ -20,7 +20,7 @@ public class FarmacoFarmaciaDAO {
 	public static void pharmacyMedicinePersistence(SessioneFarmacia s) {
 		 List <FarmacoFarmacia> farmaci = null;
 		 Connection conn= connector.getConnection();
-		 Statement stmt = null;
+		 Statement statement = null;
 		
 		 try {
 			 if (s.getFarmaci() == null) return;
@@ -29,29 +29,27 @@ public class FarmacoFarmaciaDAO {
 				 if (f.isAddedRuntime()) {   
 				    String sql1 = "INSERT INTO  `farmaco farmacia`(`farmaco`, `possessore`, `scadenza`, `descrizione`, `quantitativo`) VALUES ('" + f.getNome() +"','" + s.getUsername() + "','" + f.getScadenza() + "','" + f.getDescrizione() + "','" + f.getQuantita() + "');";
 				    
-				    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+				    statement = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-				    stmt.executeUpdate(sql1);
+				    statement.executeUpdate(sql1);
 				    
-				    stmt.close();
+				    statement.close();
 				    
 				 }
 				 else if (f.isChanged()) {
 					 String sql1 = "UPDATE `farmaco farmacia` F SET F.`descrizione`= '" + f.getDescrizione() +"', F.`quantitativo` = '" + f.getQuantita() + "' WHERE F.`possessore` = '" + s.getUsername() + "' AND F.`farmaco`='" + f.getNome() + "' AND F.`scadenza`='" + f.getScadenza() + "';";
-					 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+					 statement = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-					 stmt.executeUpdate(sql1);
+					 statement.executeUpdate(sql1);
 					 
-					 stmt.close();
+					 statement.close();
 				 }
 			 }
-		    } catch (SQLException se) {
-		        se.printStackTrace();
-		    } catch (Exception e) {
-		        e.printStackTrace();
+		    }  catch (Exception exF) {
+		        exF.printStackTrace();
 		    } finally {
 		    	List<Statement> statements = new ArrayList<>();
-	        	statements.add(stmt);
+	        	statements.add(statement);
  	
 	        	ConnectionClose.closeConnections(conn, statements);
 		    }

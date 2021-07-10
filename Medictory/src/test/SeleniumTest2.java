@@ -14,6 +14,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumTest2 {
 	
 	private static final String ACTION = "arguments[0].click()";
+	 private JavascriptExecutor jse;
+	 private WebElement ele;
 
 @Test
 public void medictoryTest2() {
@@ -21,18 +23,21 @@ public void medictoryTest2() {
 	WebDriver driver =new ChromeDriver();
 	driver.get("http://localhost:8080/Medictory/");
 	driver.manage().window().setSize(new Dimension(697, 728));
+	
+	 jse = (JavascriptExecutor)driver;
+	
 	 driver.findElement(By.id("signIn")).click();
-	 driver.findElement(By.name("username")).click();
-	 driver.findElement(By.name("username")).sendKeys("keska");
-	 driver.findElement(By.name("password")).click();
-	 driver.findElement(By.name("password")).sendKeys("keska");
+	 click(driver, "username", "keska");
+	
+	 click(driver, "password", "keska");
+	 
 	 driver.findElement(By.name("login")).click();
 	 driver.findElement(By.cssSelector(".hexagon-item:nth-child(3) .hex-content-inner")).click();
 	
-	 JavascriptExecutor jse = (JavascriptExecutor)driver;
+	
 	 
 	 
-	 WebElement ele = driver.findElement(By.name("nome"));
+	 ele = driver.findElement(By.name("nome"));
 	 jse.executeScript(ACTION, ele);
 	 driver.findElement(By.name("nome")).sendKeys("Nuovo Evento");
 	 
@@ -66,5 +71,11 @@ public void medictoryTest2() {
 	 
 	 assertEquals(driver.findElement(By.cssSelector("h2")).getText(), "Non puoi inserire un evento iniziato");
 	}
+
+	private void click(WebDriver driver, String name, String str) {
+	    ele = driver.findElement(By.name(name));
+	    jse.executeScript(ACTION, ele);
+	    driver.findElement(By.name(name)).sendKeys(str);
+}
 }
 

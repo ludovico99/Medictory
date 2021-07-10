@@ -4,19 +4,14 @@ package test;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
- 
-
 import java.util.ArrayList;
-
- 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+ 
 
  
 
@@ -24,6 +19,9 @@ public class SeleniumTest3 {
     private static final String ACTION = "arguments[0].click()";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
+    private JavascriptExecutor jse;
+    private WebElement ele;
+ 
 
  
 
@@ -33,6 +31,8 @@ public class SeleniumTest3 {
         WebDriver driver =new ChromeDriver();
         driver.get("http://localhost:8080/Medictory/");
         driver.manage().window().setSize(new Dimension(697, 728));
+        jse = (JavascriptExecutor) driver;
+        
         
         //login
         driver.findElement(By.id("signInCustomer")).click();
@@ -46,20 +46,10 @@ public class SeleniumTest3 {
         driver.findElement(By.xpath("/html/body/main/div/div/div[2]/div/div/div[2]/div[1]/a")).click();
         
         //compila la form
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        
-        WebElement ele = driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[1]"));
-        jse.executeScript(ACTION, ele);
-        driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[1]")).sendKeys("aaa");
-        ele = driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[2]"));
-        jse.executeScript(ACTION, ele);
-        driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[2]")).sendKeys("aaa");
-        ele = driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[3]"));
-        jse.executeScript(ACTION, ele);
-        driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[3]")).sendKeys("1");
-        ele = driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[4]"));
-        jse.executeScript(ACTION, ele);
-        driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[4]")).sendKeys("01/08/2025");
+        click(driver, "//*[@id=\"contact-form\"]/input[1]", "aaa");
+        click(driver, "//*[@id=\"contact-form\"]/input[2]", "aaa");
+        click(driver, "//*[@id=\"contact-form\"]/input[3]", "1");
+        click(driver, "//*[@id=\"contact-form\"]/input[4]", "01/08/2025");
     
         
         ele = driver.findElement(By.xpath("//*[@id=\"contact-form\"]/input[5]"));
@@ -111,5 +101,11 @@ public class SeleniumTest3 {
         expected.add("2025-08-01");
         
         assertEquals(expected, actual);
+    }
+    
+    private void click(WebDriver driver, String xpath, String str) {
+        ele = driver.findElement(By.xpath(xpath));
+        jse.executeScript(ACTION, ele);
+        driver.findElement(By.xpath(xpath)).sendKeys(str);
     }
 }

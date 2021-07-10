@@ -18,7 +18,7 @@ public class FarmacoClienteDAO {
 	public static void clientMedicinePersistence(SessioneCliente s) {
 		 List <FarmacoCliente> farmaci = null;
 		 Connection conn= connector.getConnection();
-		 Statement stmt = null;
+		 Statement stmtC = null;
 		
 		 try {
 		     if(s.getFarmaci() == null) return;
@@ -27,33 +27,30 @@ public class FarmacoClienteDAO {
 				 if (f.isAddedRuntime()) {   
 				    String sql1 = "INSERT INTO  `farmaco cliente` VALUES ('" + f.getNome() +"','" + s.getUsername() + "','" + f.getScadenza() + "','" + f.getDescrizione() + "','" + f.getQuantita() + "','" + f.getStato() + "');";
 				    
-				    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+				    stmtC = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-				    stmt.executeUpdate(sql1);
+				    stmtC.executeUpdate(sql1);
 				    
-				    stmt.close();
+				    stmtC.close();
 				    
 				 }
 				 else if (f.isChanged()) {
 					 String sql1 = "UPDATE `farmaco cliente` F SET F.`descrizione`= '" + f.getDescrizione() +"', F.`quantitativo` = '" + f.getQuantita() + "', F.`stato` = '" + f.getStato () + "' WHERE F.`possessore` = '" + s.getUsername() + "' AND F.`farmaco`='" + f.getNome() + "' AND F.`scadenza`='" + f.getScadenza() + "';";
-					 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+					 stmtC = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-					 stmt.executeUpdate(sql1);
+					 stmtC.executeUpdate(sql1);
 					 
-					 stmt.close();
+					 stmtC.close();
 					 
 				 }
 			 }
 		    	
-		    } catch (SQLException se) {
-		        // Errore durante l'apertura della connessione
-		        se.printStackTrace();
-		    } catch (Exception e) {
+		    }  catch (Exception exC) {
 		        // Errore nel loading del driver
-		        e.printStackTrace();
+		        exC.printStackTrace();
 		    } finally {
 		    	List<Statement> statements = new ArrayList<>();
-	        	statements.add(stmt);
+	        	statements.add(stmtC);
 	        
 	        	ConnectionClose.closeConnections(conn, statements);
 		    }
@@ -72,32 +69,29 @@ public class FarmacoClienteDAO {
         	String sql = "SELECT `farmaco`, `descrizione`, `scadenza`, `quantitativo`, `stato` " + "FROM `Farmaco Cliente` where `possessore` = '" + username + "';";
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);       
             
-            ResultSet rs = stmt.executeQuery(sql);
+            ResultSet resultSet = stmt.executeQuery(sql);
             
            
-            if (rs.first()) {		// rs non vuoto, posso procedere
-            	rs.first();
+            if (resultSet.first()) {		// rs non vuoto, posso procedere
+            	resultSet.first();
             	farmaci = new ArrayList<>();
             	do {
-            		FarmacoCliente f =(FarmacoCliente)factory.creaFarmaco(rs.getString("farmaco"), rs.getString("descrizione"), rs.getString("scadenza"), rs.getInt("quantitativo"));
-             		f.setStato(rs.getString("stato"));
+            		FarmacoCliente f =(FarmacoCliente)factory.creaFarmaco(resultSet.getString("farmaco"), resultSet.getString("descrizione"), resultSet.getString("scadenza"), resultSet.getInt("quantitativo"));
+             		f.setStato(resultSet.getString("stato"));
             		farmaci.add(f);
             		
-            	} while (rs.next());
+            	} while (resultSet.next());
             	
             }
 
             else{
-            	rs.close();
+            	resultSet.close();
                 stmt.close();
                 conn.close();
             }
-        } catch (SQLException se) {
-            // Errore durante l'apertura della connessione
-            se.printStackTrace();
-        } catch (Exception e) {
+        }catch (Exception eC) {
             // Errore nel loading del driver
-            e.printStackTrace();
+        	eC.printStackTrace();
         } finally {
         	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
