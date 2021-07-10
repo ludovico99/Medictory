@@ -76,8 +76,6 @@ public class GcCustomerEvent implements GraphicController, Observer {
 	private ControllerCustomerEvents controller = new ControllerCustomerEvents();
 	
 	
-	
-	
 	private void setPrimaryStage(Stage primaryStage, String file) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
 		PrimaryStage.setPrimaryStage(primaryStage, loader, sessione);

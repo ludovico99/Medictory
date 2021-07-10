@@ -3,14 +3,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import logic.ingegnerizzazione.PrimaryStage;
 import logic.model.Sessione;
 import logic.model.SessioneCliente;
-
-import java.io.IOException;
-import javafx.scene.Scene;
 
 public class GcCustomerHomepage implements GraphicController {
 	@FXML
@@ -29,21 +26,8 @@ public class GcCustomerHomepage implements GraphicController {
 	
 	
 	private void setPrimaryStage(Stage primaryStage, String file) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-			Parent root = loader.load();
-			
-			
-			GraphicController controllerNext= loader.getController();
-			controllerNext.setData(sessione);
-			
-			primaryStage.setTitle("Medictory");
-			primaryStage.setScene(new Scene(root, 600,400));
-			primaryStage.show();
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-			}
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+		PrimaryStage.setPrimaryStage(primaryStage, loader, sessione);
 		
 	}	
 	

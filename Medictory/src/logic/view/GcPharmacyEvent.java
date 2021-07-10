@@ -27,6 +27,7 @@ import logic.ingegnerizzazione.InputException;
 import logic.ingegnerizzazione.NoInternetException;
 import logic.ingegnerizzazione.Observer;
 import logic.ingegnerizzazione.PharmacyAllEventBean;
+import logic.ingegnerizzazione.PrimaryStage;
 import javafx.scene.Scene;
 
 public class GcPharmacyEvent implements GraphicController, Observer, Runnable {
@@ -99,20 +100,8 @@ public class GcPharmacyEvent implements GraphicController, Observer, Runnable {
 	private boolean first = true;
 	
 	private void setPrimaryStage(Stage primaryStage, String file) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-			Parent root = loader.load();
-			
-			GraphicController controllerNext= loader.getController();
-			controllerNext.setData(sessione);
-			
-			primaryStage.setTitle("Medictory");
-			primaryStage.setScene(new Scene(root, 600,400));
-			primaryStage.show();
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-			}
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+		PrimaryStage.setPrimaryStage(primaryStage, loader, sessione);
 		
 	}	
 	

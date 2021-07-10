@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.Scene;
 
-public class GCLogin {
+public class GCLogin{
 		
 		@FXML
 		private Button userStart;

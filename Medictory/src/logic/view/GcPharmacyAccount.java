@@ -87,7 +87,7 @@ public class GcPharmacyAccount implements GraphicController, Observer{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
 			Parent root = loader.load();
 			
-			if(btn.getId().compareTo("logout") == 0 || btn.getId().compareTo("logout2") ==0) {
+			if(btn.getId().compareTo("logoutF") == 0 || btn.getId().compareTo("logout2F") ==0) {
 				ControllerLogout controllerLogout = new ControllerLogout();
 				controllerLogout.makeDataPharmacyPersistent(sessione);
 			}
