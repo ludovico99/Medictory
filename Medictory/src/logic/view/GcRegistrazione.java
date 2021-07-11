@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import logic.controller.ControllerCustomerAccount;
 import logic.controller.ControllerRegistrazione;
 import logic.ingegnerizzazione.Feedback;
+import logic.ingegnerizzazione.DatabaseException;
 import logic.ingegnerizzazione.FarmaciaBean;
 
 public class GcRegistrazione {
@@ -104,20 +105,30 @@ public class GcRegistrazione {
 		e = email.getText();
 		s = scelta.getText();
 		
-		if(controller.registraCliente(u, p, e, s)) {
+		try{
+			if(controller.registraCliente(u, p, e, s)) {
 			
-			Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
-			setPrimaryStage(primaryStage, "progetto.fxml");
-			GcOk o = new GcOk();
-			o.mostrati();
-		}
-		else {
+				
+				Stage primaryStage=(Stage)((Node)event.getSource()).getScene().getWindow();
+				setPrimaryStage(primaryStage, "progetto.fxml");
+				GcOk o = new GcOk();
+				o.mostrati();
+			}
+			else {
+				username.setText("");
+				password.setText("");
+				email.setText("");
+				scelta.setText("");
+				Feedback.mostraErrore("Dati inseriti scorretti, riprovare");
+				
+			}
+		} catch (DatabaseException ev){
+			Feedback.mostraErrore(ev.getMessage());
+		}finally {
 			username.setText("");
 			password.setText("");
 			email.setText("");
 			scelta.setText("");
-			Feedback.mostraErrore("Dati inseriti scorretti, riprovare");
-			
 		}
 		
 	}

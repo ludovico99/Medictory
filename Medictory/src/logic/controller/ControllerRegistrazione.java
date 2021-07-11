@@ -1,6 +1,7 @@
 package logic.controller;
 import logic.model.FarmaciaDAO;
 import logic.model.Farmacia;
+import logic.ingegnerizzazione.DatabaseException;
 import logic.model.Cliente;
 import logic.model.ClienteDAO;
 
@@ -17,14 +18,14 @@ public class ControllerRegistrazione {
 		return (f != null);
 	}
 	
-	public boolean registraCliente(String username, String pwd, String email, String farma) {
+	public boolean registraCliente(String username, String pwd, String email, String farma) throws DatabaseException  {
 		if (username == null || pwd == null || email == null || farma == null || 
 			username.equals("") || pwd.equals("")  || email.equals("") || farma.equals("")) 
 			return false;
 		
 		Cliente c;
 		c = ClienteDAO.creaUtenteCliente(username, pwd, email, farma);
-		
-		return (c != null);
+		if(c==null) throw new DatabaseException("Username esistente o farmacia inesistente");
+		return true;
 	}
 }
