@@ -111,8 +111,8 @@ public class GcPharmacyAppuntamenti implements GraphicController {
 		ObservableList<PharmacyAppuntamentiBean> list = FXCollections.observableArrayList();
 		utenteCol.setCellValueFactory(new PropertyValueFactory<>("Utente"));
 		emailCol.setCellValueFactory(new PropertyValueFactory<>("Email"));
-		cittaCol.setCellValueFactory(new PropertyValueFactory<>("Citta"));
-		indirizzoCol.setCellValueFactory(new PropertyValueFactory<>("Indirizzo"));
+		cittaCol.setCellValueFactory(new PropertyValueFactory<>("City"));
+		indirizzoCol.setCellValueFactory(new PropertyValueFactory<>("Address"));
 		dataCol.setCellValueFactory(new PropertyValueFactory<>("Data"));
 		
 		
