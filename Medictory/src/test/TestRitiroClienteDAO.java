@@ -30,8 +30,8 @@ private static Connector connector = Connector.getConnectorInstance();
 		final String USERNAMEC = "Cliente3";
 		final String EMAIL = "cliente3@gmail.com";
 		
-		Connection conn= connector.getConnection();
-		Statement stmt = null;
+		Connection conn3= connector.getConnection();
+		Statement statement3 = null;
 		if (FarmaciaDAO.esisteFarmacia(USERNAMEF, "farma") == null) 
 			 FarmaciaDAO.creaUtenteFarmacia(USERNAMEF, "farma", "farmacia3", "farmacia3@gmail.com", "ok3");
 	
@@ -40,19 +40,19 @@ private static Connector connector = Connector.getConnectorInstance();
 			
 		try {
 			 
-			 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			 statement3 = conn3.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			    
-			 stmt.executeUpdate(sql);
+			 statement3.executeUpdate(sql);
 			    
-			 stmt.close();
-		 }  catch (Exception ex) {
+			 statement3.close();
+		 }  catch (Exception e3) {
 		 
-		   ex.printStackTrace();
+		   e3.printStackTrace();
 		} finally {
 			List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+        	statements.add(statement3);
 	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeConnections(conn3, statements);
 		}		
 	}
 	else {
