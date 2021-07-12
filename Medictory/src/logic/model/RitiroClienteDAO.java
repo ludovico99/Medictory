@@ -57,7 +57,7 @@ public class RitiroClienteDAO {
         
         try {
         	
-        	String sql = "SELECT `citta`, `indirizzo`, `data`, `farmacia`, `email` " + "FROM `Ritiro` where `nome` = '" + username + "';";
+        	String sql = "SELECT `nome`, `citta`, `indirizzo`, `data`, `farmacia`, `email` " + "FROM `Ritiro` where `nome` = '" + username + "';";
             stmtRetreat = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);       
             
             ResultSet rsRitiro = stmtRetreat.executeQuery(sql);
@@ -67,7 +67,7 @@ public class RitiroClienteDAO {
             	ritiri = new ArrayList<>();
                
             	do {
-            		RitiroCliente r = new RitiroCliente(/*rs.getString("nome"),*/rsRitiro.getString("citta"), rsRitiro.getString("indirizzo"), (rsRitiro.getDate("data")).toLocalDate(), rsRitiro.getString("farmacia"), rsRitiro.getString("email"));
+            		RitiroCliente r = new RitiroCliente(rsRitiro.getString("nome"),rsRitiro.getString("citta"), rsRitiro.getString("indirizzo"), (rsRitiro.getDate("data")).toLocalDate(), rsRitiro.getString("farmacia"), rsRitiro.getString("email"));
              		
             		ritiri.add(r);
             		

@@ -20,17 +20,17 @@ import logic.model.SessioneFarmacia;
 public class TestEventoDAO {
 	private static Connector connector = Connector.getConnectorInstance();
 	
-	private static final String USERNAME = "NuovaFarmacia";
+	private static final String USERNAME = "Farmacia1";
 		
 	
 	@Test
 	public void testEventoDAOPharmacyEventsPersistence() {
-		//Test Case Marina #1:
+		//Test Case Ludovico #3: Il test case ha lo scopo di controllare l'effettivo inserimento di un nuovo evento per la farmacia con username Farmacia1
 		
 		Connection conn= connector.getConnection();
 	
 		Statement statement = null;
-	if (FarmaciaDAO.esisteFarmacia(USERNAME, "nuovaFarmacia") != null) {
+	if (FarmaciaDAO.esisteFarmacia(USERNAME, "farma") != null) {
 			String sql1 = "DELETE  FROM `evento`  WHERE `farmacia`='" + USERNAME + "';"; 
 			
 		try {
@@ -51,7 +51,7 @@ public class TestEventoDAO {
 		}		
 	}
 	else {
-		FarmaciaDAO.creaUtenteFarmacia(USERNAME, "nuovaFarmacia", "Nuovo", "nuovoUtente@gmail.com", "ok");
+		FarmaciaDAO.creaUtenteFarmacia(USERNAME, "farma", "farmacia1", "farmacia1@gmail.com", "ok");
 	}
 		
 		SessioneFarmacia sessione = new SessioneFarmacia(USERNAME, null, null, null);
@@ -64,6 +64,7 @@ public class TestEventoDAO {
 		sessione.setEventi(eventiExpected);
 	
     	EventoDAO.pharmacyEventsPersistence(sessione);
+    	
 		List<EventoFarmacia> eventiFarmacia = EventoDAO.allEventsFarmacia(USERNAME);
 		
 		

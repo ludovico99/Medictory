@@ -10,8 +10,8 @@ public class RitiroCliente {
 	private String farmacia;
 	private String email;
 	
-	public RitiroCliente(String citta, String indirizzo, LocalDate data, String farmacia, String email) {
-			
+	public RitiroCliente(String nome, String citta, String indirizzo, LocalDate data, String farmacia, String email) {
+		this.nome = nome;
 		this.citta = citta;
 		this.indirizzo = indirizzo;
 		this.data = data;

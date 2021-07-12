@@ -13,6 +13,7 @@ import org.junit.Test;
 import logic.ingegnerizzazione.ConnectionClose;
 import logic.model.ClienteDAO;
 import logic.model.Connector;
+import logic.model.FarmaciaDAO;
 import logic.model.FarmacoCliente;
 import logic.model.FarmacoClienteDAO;
 import logic.model.SessioneCliente;
@@ -21,17 +22,22 @@ public class TestFarmacoClienteDAO {
 	
 private static Connector connector = Connector.getConnectorInstance();
 	
-	private static final String USERNAME = "Username";
-		
-	
+
 	@Test
 	public void testFarmacoDAOClientMedicinePersistence() {
-		//Test Case Marina #2:
+		//Test Case Marina #2: Il test case controlla il corretto inserimento di un nuovo farmaco  cliente per il cliente con Username Cliente2.
 		
 		Connection conn= connector.getConnection();
-	
 		Statement stmt = null;
-	if (ClienteDAO.esisteCliente(USERNAME,"username") != null) {
+		final String USERNAMEF = "Farmacia2";
+		
+		if (FarmaciaDAO.esisteFarmacia(USERNAMEF, "farma") == null) {
+			FarmaciaDAO.creaUtenteFarmacia(USERNAMEF, "farma", "farmacia2", "farmacia2@gmail.com", "ok2");
+		
+			}
+	
+		final String USERNAME = "Cliente2";
+		if (ClienteDAO.esisteCliente(USERNAME,"cliente2") != null) {
 			String sql = "DELETE  FROM  `farmaco cliente`  WHERE `possessore`='" + USERNAME + "';"; 
 			
 		try {
@@ -52,25 +58,25 @@ private static Connector connector = Connector.getConnectorInstance();
 		}		
 	}
 	else {
-		ClienteDAO.creaUtenteCliente(USERNAME, "username", "username@gmail.com", "NuovaFarmacia");
+		ClienteDAO.creaUtenteCliente(USERNAME, "cliente2", "cliente2@gmail.com", USERNAMEF);
 	}
 		
 		SessioneCliente sessione = new SessioneCliente(USERNAME, null, null);
 
 		FarmacoCliente farmaco = new FarmacoCliente("NuovoFarmaco", "Descrizione","2025-01-01", 1);
-		List<FarmacoCliente> farmaciExcpected = new ArrayList<>();
-		farmaciExcpected.add(farmaco);
+		List<FarmacoCliente> farmaciExpected = new ArrayList<>();
+		farmaciExpected.add(farmaco);
 		
 		farmaco.setAddedRuntime(true);
 		farmaco.setStato("utilizzabile");
-		sessione.setFarmaci(farmaciExcpected);
+		sessione.setFarmaci(farmaciExpected);
 	
 		FarmacoClienteDAO.clientMedicinePersistence(sessione);
 		List<FarmacoCliente> farmaciCliente = FarmacoClienteDAO.myFarmaciCliente(USERNAME);
 		
 		
 		
-		assertEquals(farmaciExcpected.get(0).getNome(),farmaciCliente.get(0).getNome());
+		assertEquals(farmaciExpected.get(0).getNome(),farmaciCliente.get(0).getNome());
 		
 		
 	}
