@@ -1,4 +1,5 @@
 package test;
+package test;
 
 import static org.junit.Assert.assertThrows;
 
@@ -9,9 +10,10 @@ import logic.ingegnerizzazione.RelationshipException;
 import logic.model.SessioneCliente;
 
 public class TestControllerCustomerAppuntamento {
-	// Test Case Marina #1:
-	// Il caso di test ha l'obiettivo di controllore l'effettivo lancio della Relationship Exception
-	// quando viene prenotato un ritiro da una farmacia diversa da quella associata al cliente stesso 
+	/* Test Case Marina #3:
+	 * Il seguente test case controlla l'effettivo lancio della Relationship Exception 
+	 * nel momento in cui viene prenotato un ritiro verso una farmacia diversa da quella 
+	 * associata al cliente stesso. */
 	@Test 
 	public void testControllerCustomerAppuntamentoPrenotaRitiro()  {
 		 ControllerCustomerAppuntamento c = new ControllerCustomerAppuntamento();
