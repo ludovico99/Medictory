@@ -20,46 +20,46 @@ import logic.model.SessioneCliente;
 
 public class TestFarmacoClienteDAO {
 	
-private static Connector connector = Connector.getConnectorInstance();
+	/*Test Case Marina #1: Il seguente test case controlla il corretto
+	 * inserimento del farmaco-cliente "NuovoFarmaco"
+	 * relativo al cliente con username "Cliente2".*/
 	
+	private static Connector connector = Connector.getConnectorInstance();
 
 	@Test
 	public void testFarmacoDAOClientMedicinePersistence() {
-		//Test Case Marina #2: Il test case controlla il corretto inserimento di un nuovo farmaco  cliente per il cliente con Username Cliente2.
 		
 		Connection conn= connector.getConnection();
 		Statement stmt = null;
 		final String USERNAMEF = "Farmacia2";
+		final String USERNAME = "Cliente2";
 		
 		if (FarmaciaDAO.esisteFarmacia(USERNAMEF, "farma") == null) {
-			FarmaciaDAO.creaUtenteFarmacia(USERNAMEF, "farma", "farmacia2", "farmacia2@gmail.com", "ok2");
+			FarmaciaDAO.creaUtenteFarmacia(USERNAMEF, "farma", "farmacia2", "farmacia2@gmail.com", "via Ettore Viola,30");
+		}
 		
-			}
-	
-		final String USERNAME = "Cliente2";
 		if (ClienteDAO.esisteCliente(USERNAME,"cliente2") != null) {
 			String sql = "DELETE  FROM  `farmaco cliente`  WHERE `possessore`='" + USERNAME + "';"; 
 			
-		try {
+			try {
 			 
-			 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			    
-			 stmt.executeUpdate(sql);
-			    
-			 stmt.close();
-		 }  catch (Exception ex) {
-		 
-		   ex.printStackTrace();
-		} finally {
-			List<Statement> statements = new ArrayList<>();
-        	statements.add(stmt);
+				stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+				stmt.executeUpdate(sql);
+				stmt.close();
+			 
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			 
+			   } finally {
+			
+				List<Statement> statements = new ArrayList<>();
+				statements.add(stmt);
 	
-        	ConnectionClose.closeConnections(conn, statements);
-		}		
-	}
-	else {
-		ClienteDAO.creaUtenteCliente(USERNAME, "cliente2", "cliente2@gmail.com", USERNAMEF);
-	}
+				ConnectionClose.closeConnections(conn, statements);
+		          }		
+		 } else {
+			 ClienteDAO.creaUtenteCliente(USERNAME, "cliente2", "cliente2@gmail.com", USERNAMEF);
+		   }
 		
 		SessioneCliente sessione = new SessioneCliente(USERNAME, null, null);
 
@@ -74,10 +74,7 @@ private static Connector connector = Connector.getConnectorInstance();
 		FarmacoClienteDAO.clientMedicinePersistence(sessione);
 		List<FarmacoCliente> farmaciCliente = FarmacoClienteDAO.myFarmaciCliente(USERNAME);
 		
-		
-		
 		assertEquals(farmaciExpected.get(0).getNome(),farmaciCliente.get(0).getNome());
-		
 		
 	}
 
