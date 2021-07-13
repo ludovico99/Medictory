@@ -16,7 +16,7 @@ public class RitiroClienteDAO {
 	    throw new IllegalStateException("Utility class");}
 	
 	
-	public static RitiroCliente creaRitiro(String nome, String citta, String indirizzo, String d, String farmacia, String email) {
+	public static void creaRitiro(RitiroCliente ritiro) {
 		Statement stmtRitiro = null;
 		Connection conn= connector.getConnection();
 		 
@@ -24,7 +24,8 @@ public class RitiroClienteDAO {
         
         try {
         	
-            String sql = "INSERT INTO `Ritiro` (`nome`, `citta`, `indirizzo`, `data`, `farmacia`, `email`) VALUES ('"+ nome + "', '" + citta + "','" + indirizzo + "', '" + d + "','" + farmacia + "','" + email + "');" ;
+        	
+            String sql = "INSERT INTO `Ritiro` (`nome`, `citta`, `indirizzo`, `data`, `farmacia`, `email`) VALUES ('"+ ritiro.getNome() + "', '" + ritiro.getCitta() + "','" + ritiro.getIndirizzo() + "', '" + ritiro.getData() + "','" + ritiro.getFarmacia() + "','" + ritiro.getEmail() + "');" ;
            
             stmtRitiro = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             
@@ -44,7 +45,6 @@ public class RitiroClienteDAO {
 
         	ConnectionClose.closeConnections(conn, statementsRitiro);
         }
-        return null;
 	}
 	
  public static List<RitiroCliente> myRitiriCliente(String username) {
@@ -67,7 +67,7 @@ public class RitiroClienteDAO {
             	ritiri = new ArrayList<>();
                
             	do {
-            		RitiroCliente r = new RitiroCliente(rsRitiro.getString("nome"),rsRitiro.getString("citta"), rsRitiro.getString("indirizzo"), (rsRitiro.getDate("data")).toLocalDate(), rsRitiro.getString("farmacia"), rsRitiro.getString("email"));
+            		RitiroCliente r = new RitiroCliente(rsRitiro.getString("nome"),rsRitiro.getString("citta"), rsRitiro.getString("indirizzo"), (rsRitiro.getDate("data")).toString(), rsRitiro.getString("farmacia"), rsRitiro.getString("email"));
              		
             		ritiri.add(r);
             		

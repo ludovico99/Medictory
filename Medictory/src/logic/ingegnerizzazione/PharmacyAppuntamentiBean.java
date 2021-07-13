@@ -27,7 +27,7 @@ public class PharmacyAppuntamentiBean {
 		this.city = c.getCitta();
 		this.address = c.getIndirizzo();
 		this.email = c.getEmail();
-		this.data = c.getData();
+		this.data = LocalDate.parse(c.getData());
 	}
 
 

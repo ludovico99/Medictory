@@ -58,10 +58,11 @@ public class TestRitiroClienteDAO {
 			ClienteDAO.creaUtenteCliente(USERNAMEC, "cliente3", "cliente3@gmail.com", USERNAMEF);
 		  }
 
-		RitiroCliente ritiro = new RitiroCliente(USERNAMEC,"CittaTest", "IndirizzoTest", null,USERNAMEF, "cliente3@gmail.com");
+		RitiroCliente ritiro = new RitiroCliente(USERNAMEC,"CittaTest", "IndirizzoTest", "2022-01-01",USERNAMEF, "cliente3@gmail.com");
+		
 		List<RitiroCliente> ritiriExpected = new ArrayList<>();
 		ritiriExpected.add(ritiro);
-		RitiroClienteDAO.creaRitiro(USERNAMEC, "CittaTest", "IndirizzoTest", "2022-02-03", USERNAMEF,"cliente3@gmail.com");
+		RitiroClienteDAO.creaRitiro(ritiro);
 		
 		List<RitiroCliente> ritiriEffettivi = RitiroClienteDAO.myRitiriCliente(USERNAMEC);
 		

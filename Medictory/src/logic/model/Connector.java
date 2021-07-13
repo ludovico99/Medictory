@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Connector {
 	private static String user = "root";
-	private static String pass = "ok";
+	private static String pass = "lZ...030599";
 	private static String dbUrl = "jdbc:mysql://localhost:3306/medictory?serverTimezone=Europe/Rome";
 	private static String driverClassName = "com.mysql.cj.jdbc.Driver";
 	private static Connector connectorInstance=null;

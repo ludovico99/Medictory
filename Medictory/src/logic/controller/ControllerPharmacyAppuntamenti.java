@@ -25,9 +25,9 @@ public class ControllerPharmacyAppuntamenti  {
 			
 			if(ritiri != null) {
 				for(RitiroCliente rc: ritiri) {
-				
-					if((rc.getData()).isAfter(currentDate)) {
-						PharmacyAppuntamentiBean modelTable = new PharmacyAppuntamentiBean(c.getUsername(),rc.getEmail(),rc.getCitta(),rc.getIndirizzo(),rc.getData());
+					
+					if((LocalDate.parse(rc.getData())).isAfter(currentDate)) {
+						PharmacyAppuntamentiBean modelTable = new PharmacyAppuntamentiBean(c.getUsername(),rc.getEmail(),rc.getCitta(),rc.getIndirizzo(),LocalDate.parse(rc.getData()));
 						list.add(modelTable);
 					}
 				}

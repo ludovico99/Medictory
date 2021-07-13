@@ -1,16 +1,15 @@
 package logic.model;
 
-import java.time.LocalDate;
 
 public class RitiroCliente {
 	private String nome;
 	private String citta;
 	private String indirizzo;
-	private LocalDate data;
+	private String data;
 	private String farmacia;
 	private String email;
 	
-	public RitiroCliente(String nome, String citta, String indirizzo, LocalDate data, String farmacia, String email) {
+	public RitiroCliente(String nome, String citta, String indirizzo, String data, String farmacia, String email) {
 		this.nome = nome;
 		this.citta = citta;
 		this.indirizzo = indirizzo;
@@ -70,12 +69,12 @@ public class RitiroCliente {
 	}
 
 
-	public LocalDate getData() {
+	public String getData() {
 		return data;
 	}
 
 
-	public void setData(LocalDate data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	

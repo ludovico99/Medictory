@@ -8,6 +8,7 @@ import java.util.Date;
 import logic.ingegnerizzazione.DateException;
 import logic.ingegnerizzazione.InputException;
 import logic.ingegnerizzazione.RelationshipException;
+import logic.model.RitiroCliente;
 import logic.model.RitiroClienteDAO;
 import logic.model.SessioneCliente;
 
@@ -32,8 +33,9 @@ public class ControllerCustomerAppuntamento{
 			}
 		if (sessione.getFarmaciaAssociata().compareToIgnoreCase(farmacia) !=0) throw new RelationshipException("Inserisci la TUA farmacia");
 		
+		RitiroCliente ritiro = new RitiroCliente(nome,citta, indirizzo, d,farmacia,email);
 		
-		RitiroClienteDAO.creaRitiro(nome, citta, indirizzo, d, farmacia, email);
+		RitiroClienteDAO.creaRitiro(ritiro);
 		
 	}
 
