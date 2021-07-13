@@ -12,7 +12,7 @@
  <%
  	ControllerCustomerEvents controller = new ControllerCustomerEvents();
  	SessioneCliente s = (SessioneCliente)session.getAttribute("sessione cliente");
- 	s.setEventiAttiviFarmaciaAssociata(EventoDAO.allActiveEvents(s.getFarmaciaAssociata()));
+ 	s.setEventiAttiviFarmaciaAssociata(controller.getAllActiveEvents(s));
 	if(request.getParameter("join") != null){
 			try {
 				EventoCliente e = controller.addMyEvent(s, request.getParameter("evento"));

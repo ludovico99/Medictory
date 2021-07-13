@@ -8,6 +8,7 @@ import logic.ingegnerizzazione.EventiUtenteBean;
 import logic.ingegnerizzazione.InputException;
 import logic.ingegnerizzazione.RequirementException;
 import logic.model.EventoCliente;
+import logic.model.EventoDAO;
 import logic.model.SessioneCliente;
 
 
@@ -31,6 +32,10 @@ public class ControllerCustomerEvents {
 		return false;
 	}
 	
+	
+	public List<EventoCliente> getAllActiveEvents(SessioneCliente s) {
+		return EventoDAO.allActiveEvents(s.getFarmaciaAssociata());	
+	}
 
 	public EventoCliente addMyEvent( SessioneCliente s, String nomeEvento) throws InputException,RequirementException {
 		

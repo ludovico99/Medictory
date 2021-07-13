@@ -15,7 +15,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import logic.model.EventoCliente;
-import logic.model.EventoDAO;
 import logic.model.Sessione;
 import logic.model.SessioneCliente;
 import java.io.IOException;
@@ -84,7 +83,7 @@ public class GcCustomerEvent implements GraphicController, Observer {
 	
 	public void setData(Sessione cliente) {
 		this.sessione = (SessioneCliente) cliente;
-		sessione.setEventiAttiviFarmaciaAssociata(EventoDAO.allActiveEvents(sessione.getFarmaciaAssociata()));
+		sessione.setEventiAttiviFarmaciaAssociata(controller.getAllActiveEvents(sessione));
 		this.showResource();
 
 	}
@@ -155,7 +154,7 @@ public class GcCustomerEvent implements GraphicController, Observer {
 	
 	@FXML
 	public void refreshPressed(ActionEvent event) {
-		sessione.setEventiAttiviFarmaciaAssociata(EventoDAO.allActiveEvents(sessione.getFarmaciaAssociata()));
+		sessione.setEventiAttiviFarmaciaAssociata(controller.getAllActiveEvents(sessione));
 		for(EventoCliente e: sessione.getEventiAttiviFarmaciaAssociata()) {
 			e.attach(this);
 			e.notifica();
