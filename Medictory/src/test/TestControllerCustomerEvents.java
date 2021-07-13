@@ -18,7 +18,7 @@ import logic.model.SessioneCliente;
 
 public class TestControllerCustomerEvents {
 	// Test Case Ludovico #1:
-	//Il caso di test ha l'obiettivo di controllore l'effettivo lancio della Input Exception
+	//Il caso di test ha l'obiettivo di controllare l'effettivo lancio della Input Exception
 	// quando viene aggiunto un evento il cui nome è una stringa vuota
 
 	private static final String NOME_EVENTO = "Natale";
