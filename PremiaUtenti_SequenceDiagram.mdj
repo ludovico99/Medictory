@@ -3286,7 +3286,7 @@
 												"$ref": "AAAAAAF6eAjIcTPHwQc="
 											},
 											"font": "Arial;13;0",
-											"left": 1710,
+											"left": 1717,
 											"top": 1072,
 											"width": 190.0361328125,
 											"height": 13,
@@ -3309,7 +3309,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1805,
+											"left": 1812,
 											"top": 1057,
 											"height": 13,
 											"alpha": 1.5707963267948966,
@@ -3330,7 +3330,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1805,
+											"left": 1812,
 											"top": 1092,
 											"height": 13,
 											"alpha": -1.5707963267948966,
@@ -3350,7 +3350,7 @@
 												"$ref": "AAAAAAF6eAjIcTPHwQc="
 											},
 											"font": "Arial;13;0",
-											"left": 2145,
+											"left": 2158,
 											"top": 1088,
 											"width": 14,
 											"height": 29
@@ -3363,7 +3363,7 @@
 									"tail": {
 										"$ref": "AAAAAAF6d9MJLS9BQgQ="
 									},
-									"points": "1466:1088;2145:1088",
+									"points": "1466:1088;2158:1088",
 									"nameLabel": {
 										"$ref": "AAAAAAF6eAjIcjPJwIc="
 									},
@@ -3527,9 +3527,9 @@
 													"font": "Arial;13;1",
 													"left": 2101,
 													"top": 47,
-													"width": 102,
+													"width": 127.7236328125,
 													"height": 13,
-													"text": "EventoDAO"
+													"text": "EventoDAO: Model"
 												},
 												{
 													"_type": "LabelView",
@@ -3558,7 +3558,7 @@
 											"font": "Arial;13;0",
 											"left": 2096,
 											"top": 40,
-											"width": 112,
+											"width": 137.7236328125,
 											"height": 40,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF6eAZm3DNzhsY="
@@ -3583,7 +3583,7 @@
 												"$ref": "AAAAAAF6eAZm3DNwpp4="
 											},
 											"font": "Arial;13;0",
-											"left": 2152,
+											"left": 2165,
 											"top": 80,
 											"width": 1,
 											"height": 1379
@@ -3592,7 +3592,7 @@
 									"font": "Arial;13;0",
 									"left": 2096,
 									"top": 40,
-									"width": 112,
+									"width": 137.7236328125,
 									"height": 1419,
 									"nameCompartment": {
 										"$ref": "AAAAAAF6eAZm3DNyEXc="
@@ -4625,7 +4625,7 @@
 												"$ref": "AAAAAAF6eA2L3zRdbpM="
 											},
 											"font": "Arial;13;0",
-											"left": 1992,
+											"left": 1999,
 											"top": 1400,
 											"width": 125.0361328125,
 											"height": 13,
@@ -4647,7 +4647,7 @@
 												"$ref": "AAAAAAF6eA2L3zRdbpM="
 											},
 											"font": "Arial;13;0",
-											"left": 2040,
+											"left": 2047,
 											"top": 1385,
 											"width": 57.0908203125,
 											"height": 13,
@@ -4670,7 +4670,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1608,
+											"left": 1615,
 											"top": 1420,
 											"height": 13,
 											"alpha": -1.5707963267948966,
@@ -4690,7 +4690,7 @@
 												"$ref": "AAAAAAF6eA2L3zRdbpM="
 											},
 											"font": "Arial;13;0",
-											"left": 2145,
+											"left": 2158,
 											"top": 1416,
 											"width": 14,
 											"height": 29
@@ -4703,7 +4703,7 @@
 									"tail": {
 										"$ref": "AAAAAAF6d9ZFWy+LnNQ="
 									},
-									"points": "1072:1416;2145:1416",
+									"points": "1072:1416;2158:1416",
 									"nameLabel": {
 										"$ref": "AAAAAAF6eA2L4DRfCPI="
 									},
@@ -5397,7 +5397,7 @@
 						"$ref": "AAAAAAF6d9EeHS7l/iY="
 					},
 					"name": "Role12",
-					"type": ""
+					"type": "Model"
 				}
 			]
 		}
