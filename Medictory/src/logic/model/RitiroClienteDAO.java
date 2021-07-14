@@ -11,6 +11,7 @@ import logic.ingegnerizzazione.ConnectionClose;
 public class RitiroClienteDAO {
 
 	private static Connector connector = Connector.getConnectorInstance();
+	private static Connection conn = connector.getConnection();
 	
 	private RitiroClienteDAO() {
 	    throw new IllegalStateException("Utility class");}
@@ -18,10 +19,7 @@ public class RitiroClienteDAO {
 	
 	public static void creaRitiro(RitiroCliente ritiro) {
 		Statement stmtRitiro = null;
-		Connection conn= connector.getConnection();
-		 
-        
-        
+	
         try {
         	
         	
@@ -34,8 +32,7 @@ public class RitiroClienteDAO {
             
             
             stmtRitiro.close();
-            
-            conn.close();
+           
         } catch (Exception excRitiro) {
             // Errore nel loading del driver
         	excRitiro.printStackTrace();
@@ -43,7 +40,7 @@ public class RitiroClienteDAO {
         	List<Statement> statementsRitiro = new ArrayList<>();
         	statementsRitiro.add(stmtRitiro);
 
-        	ConnectionClose.closeConnections(conn, statementsRitiro);
+        	ConnectionClose.closeStmts(statementsRitiro);
         }
 	}
 	
@@ -52,7 +49,6 @@ public class RitiroClienteDAO {
 	 List<RitiroCliente> ritiri = null;
 		
 		Statement stmtRetreat = null;
-		Connection conn= connector.getConnection();
      
         
         try {
@@ -78,7 +74,6 @@ public class RitiroClienteDAO {
             else{
             	rsRitiro.close();
                 stmtRetreat.close();
-                conn.close();
             }
         } catch (Exception excRetreat) {
         	excRetreat.printStackTrace();
@@ -86,7 +81,7 @@ public class RitiroClienteDAO {
         	List<Statement> statementsRetreat = new ArrayList<>();
         	statementsRetreat.add(stmtRetreat);
 
-        	ConnectionClose.closeConnections(conn, statementsRetreat);
+        	ConnectionClose.closeStmts(statementsRetreat);
         }
 		return ritiri;
 	}

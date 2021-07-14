@@ -10,6 +10,7 @@ import logic.ingegnerizzazione.ConnectionClose;
 public class FarmacoClienteDAO {
 	private static AbstractFactory factory = new FactoryElementoUtente();
 	private static Connector connector = Connector.getConnectorInstance();
+	private static Connection conn = connector.getConnection();
 	
 	
 	private FarmacoClienteDAO() {
@@ -17,7 +18,6 @@ public class FarmacoClienteDAO {
 	
 	public static void clientMedicinePersistence(SessioneCliente s) {
 		 List <FarmacoCliente> farmaci = null;
-		 Connection conn= connector.getConnection();
 		 Statement stmtC = null;
 		
 		 try {
@@ -32,7 +32,7 @@ public class FarmacoClienteDAO {
 				    stmtC.executeUpdate(sql1);
 				    
 				    stmtC.close();
-				    
+				    		    
 				 }
 				 else if (f.isChanged()) {
 					 String sql1 = "UPDATE `farmaco cliente` F SET F.`descrizione`= '" + f.getDescrizione() +"', F.`quantitativo` = '" + f.getQuantita() + "', F.`stato` = '" + f.getStato () + "' WHERE F.`possessore` = '" + s.getUsername() + "' AND F.`farmaco`='" + f.getNome() + "' AND F.`scadenza`='" + f.getScadenza() + "';";
@@ -41,7 +41,7 @@ public class FarmacoClienteDAO {
 					 stmtC.executeUpdate(sql1);
 					 
 					 stmtC.close();
-					 
+				 
 				 }
 			 }
 		    	
@@ -52,7 +52,7 @@ public class FarmacoClienteDAO {
 		    	List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmtC);
 	        
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
 		    }
 	}
 	
@@ -61,8 +61,8 @@ public class FarmacoClienteDAO {
 		List<FarmacoCliente> farmaci =  null;
 		
 		Statement stmt = null;
-		Connection conn= connector.getConnection();
-     
+	
+    
         
         try {
         	
@@ -86,8 +86,7 @@ public class FarmacoClienteDAO {
 
             else{
             	resultSet.close();
-                stmt.close();
-                conn.close();
+                         
             }
         }catch (Exception eC) {
             // Errore nel loading del driver
@@ -96,7 +95,7 @@ public class FarmacoClienteDAO {
         	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
 
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
         }
 		return farmaci;
 	}
@@ -105,9 +104,7 @@ public class FarmacoClienteDAO {
 	public static void scriviFarmacoClienteNelDb(FarmacoCliente farmaco, String possessore) {
 
 		Statement stmtFarmacoCliente = null;
-		Connection conn= connector.getConnection();
 		
-
 		try {
 	        	
 	      
@@ -118,10 +115,7 @@ public class FarmacoClienteDAO {
 	        stmtFarmacoCliente = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);       
 	            
 	        stmtFarmacoCliente.executeUpdate(sql);
-	            
-	        
-	        stmtFarmacoCliente.close();
-	        conn.close();
+         
 	        
 		} catch (Exception exFarmacoCliente) {
 	            // Errore nel loading del driver
@@ -130,7 +124,7 @@ public class FarmacoClienteDAO {
 	    	List<Statement> statementsFarmacoCliente = new ArrayList<>();
         	statementsFarmacoCliente.add(stmtFarmacoCliente);
        	
-        	ConnectionClose.closeConnections(conn, statementsFarmacoCliente);
+        	ConnectionClose.closeStmts(statementsFarmacoCliente);
 	    }
 	}
 	
@@ -139,7 +133,6 @@ public class FarmacoClienteDAO {
 	public static void cambiaStato(String farmaco, String possessore, String scadenza, String stato) {
 		
 		Statement statementFarmacoCliente = null;
-		Connection conn= connector.getConnection();
 		
 		try {
         	
@@ -151,10 +144,8 @@ public class FarmacoClienteDAO {
 	            
 	        statementFarmacoCliente.executeUpdate(sql);
 	            
-	        
-	        statementFarmacoCliente.close();
-	        conn.close();
-		
+
+	   		
 		} catch (Exception eFarmacoCliente) {
             
 			eFarmacoCliente.printStackTrace();
@@ -162,7 +153,7 @@ public class FarmacoClienteDAO {
 			List<Statement> stmtsFarmacoCliente = new ArrayList<>();
 			stmtsFarmacoCliente.add(statementFarmacoCliente);
         		
-        	ConnectionClose.closeConnections(conn, stmtsFarmacoCliente);
+        	ConnectionClose.closeStmts(stmtsFarmacoCliente);
 		}
 	}
 		

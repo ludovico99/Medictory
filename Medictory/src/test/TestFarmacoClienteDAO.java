@@ -45,7 +45,6 @@ public class TestFarmacoClienteDAO {
 			 
 				stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 				stmt.executeUpdate(sql);
-				stmt.close();
 			 
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -55,7 +54,8 @@ public class TestFarmacoClienteDAO {
 				List<Statement> statements = new ArrayList<>();
 				statements.add(stmt);
 	
-				ConnectionClose.closeConnections(conn, statements);
+				ConnectionClose.closeStmts(statements);
+			
 		          }		
 		 } else {
 			 ClienteDAO.creaUtenteCliente(USERNAME, "cliente2", "cliente2@gmail.com", USERNAMEF);
@@ -73,6 +73,8 @@ public class TestFarmacoClienteDAO {
 	
 		FarmacoClienteDAO.clientMedicinePersistence(sessione);
 		List<FarmacoCliente> farmaciCliente = FarmacoClienteDAO.myFarmaciCliente(USERNAME);
+		
+		ConnectionClose.closeConn(conn);
 		
 		assertEquals(farmaciExpected.get(0).getNome(),farmaciCliente.get(0).getNome());
 		

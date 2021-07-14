@@ -39,7 +39,6 @@ public class TestEventoDAO {
 			    
 			 statement.executeUpdate(sql1);
 			    
-			 statement.close();
 		 } catch (Exception e) {
 		 
 		   e.printStackTrace();
@@ -47,7 +46,8 @@ public class TestEventoDAO {
 			List<Statement> statements = new ArrayList<>();
         	statements.add(statement);
 	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
+        	
 		}		
 	}
 	else {
@@ -67,6 +67,7 @@ public class TestEventoDAO {
     	
 		List<EventoFarmacia> eventiFarmacia = EventoDAO.allEventsFarmacia(USERNAME);
 		
+		ConnectionClose.closeConn(conn);
 		
 		
 		assertEquals(eventiExpected.get(0).getName(),eventiFarmacia.get(0).getName());

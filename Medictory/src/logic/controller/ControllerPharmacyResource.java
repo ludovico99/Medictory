@@ -10,14 +10,13 @@ import logic.ingegnerizzazione.DataNotFoundException;
 import logic.ingegnerizzazione.DateException;
 import logic.ingegnerizzazione.InputException;
 import logic.ingegnerizzazione.RisorseFarmaciaBean;
-import logic.model.AbstractFactory;
 import logic.model.FactoryElementoFarmacia;
 import logic.model.FarmacoFarmacia;
 import logic.model.SessioneFarmacia;
 
 public class ControllerPharmacyResource {
 	
-	private AbstractFactory factory = new FactoryElementoFarmacia();
+	private FactoryElementoFarmacia factory = new FactoryElementoFarmacia();
 	
 	
 	private void unisciFarmaci(List<RisorseFarmaciaBean> list,FarmacoFarmacia f) {
@@ -135,7 +134,7 @@ public class ControllerPharmacyResource {
 		}
 		
 		
-		f = (FarmacoFarmacia) factory.creaFarmaco(nome.toUpperCase(), descrizione, scadenza, quantitativo);
+		f =  factory.creaFarmaco(nome.toUpperCase(), descrizione, scadenza, quantitativo);
 		f.setAddedRuntime(true);
 		if(s.getFarmaci()==null) s.setFarmaci(new ArrayList<>());
 		s.getFarmaci().add(f);

@@ -23,9 +23,10 @@ public class Connector {
 	public Connection getConnection() {
 		try {
 			
-        	Class.forName(driverClassName);
-        	connection = DriverManager.getConnection(dbUrl, user, pass);
-           
+			if(connection == null) {
+				Class.forName(driverClassName);
+				connection = DriverManager.getConnection(dbUrl, user, pass);
+			}
             
             
         } catch (SQLException se) {

@@ -9,6 +9,7 @@ import logic.ingegnerizzazione.ConnectionClose;
 public class ClienteDAO {
 	private static AbstractFactory factory = new FactoryElementoUtente();
 	private static Connector connector = Connector.getConnectorInstance();
+	private static Connection conn = connector.getConnection();
 	
 	private static String emailString = "email";
 	private static String livelloString = "livello";
@@ -20,8 +21,6 @@ public class ClienteDAO {
 	
 	public static void clientPersistence(List<Cliente> clienti) {
 		
-		
-		 Connection conn= connector.getConnection();
 		 Statement stmt = null;
 		 
 		 try {
@@ -48,7 +47,7 @@ public class ClienteDAO {
 		    	List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmt);
 	       	
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
 		    }
 	}
 	
@@ -58,7 +57,7 @@ public class ClienteDAO {
 		Statement stmtA = null;
 		Statement stmtB = null;
 		Statement stmtC = null;
-		Connection conn= connector.getConnection();
+		
        
         Cliente c = null;
         
@@ -101,7 +100,7 @@ public class ClienteDAO {
         	statements.add(stmtB);
         	statements.add(stmtC);
         	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
         }
         return null;
 	}
@@ -109,7 +108,6 @@ public class ClienteDAO {
 	
 	public static List<Cliente> customerOfThisPharmacy(String farmaciaUsername){
 		 List <Cliente> clienti = new ArrayList<>();
-		 Connection conn= connector.getConnection();
 
 		 Statement stmt = null;
 		
@@ -152,7 +150,7 @@ public class ClienteDAO {
 	    	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
        	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
 	    }
 	    return clienti;
 	}
@@ -165,7 +163,6 @@ public class ClienteDAO {
 	public static  Cliente esisteCliente(String username, String pwd) {
 		
 		Statement stmt = null;
-		Connection conn= connector.getConnection();
         Cliente cl = null;
         
         List<FarmacoCliente> farmaci = null;
@@ -207,7 +204,6 @@ public class ClienteDAO {
         	try {
             	if(stmt != null) 
             		stmt.close();
-            	conn.close();
             } catch (NullPointerException e) {
             	e.printStackTrace();
             } catch (SQLException se2) {
@@ -221,7 +217,6 @@ public class ClienteDAO {
 	public static  List<String> datiAccount(String username) {
 		
 		Statement stmt = null;
-		Connection conn= connector.getConnection();
         
         ArrayList<String> dati = new ArrayList<>();
         try {
@@ -254,7 +249,7 @@ public class ClienteDAO {
         	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
         	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
         }
         return dati;
 	}

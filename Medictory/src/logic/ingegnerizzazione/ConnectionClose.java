@@ -13,9 +13,9 @@ public class ConnectionClose {
 		  }
 
 	
-	public static void closeConnections(Connection conn, List<Statement> stmt) {
+	public static void closeStmts(List<Statement> stmt) {
 		try {
-			conn.close();
+			
 			for (Statement i : stmt) {
 	            if (i != null)
 	                i.close();
@@ -23,6 +23,16 @@ public class ConnectionClose {
             
         } catch (SQLException se) {
             se.printStackTrace();
+        }
+	}
+	
+	public static void closeConn(Connection conn) {
+		try {
+		
+			conn.close();
+            
+        } catch (SQLException s) {
+            s.printStackTrace();
         }
 	}
 

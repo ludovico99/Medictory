@@ -13,13 +13,13 @@ public class FarmacoFarmaciaDAO {
 	
 	private static AbstractFactory factory = new FactoryElementoFarmacia();
 	private static Connector connector = Connector.getConnectorInstance();
+	private static Connection conn = connector.getConnection();
 	
 	private FarmacoFarmaciaDAO() {
 	    throw new IllegalStateException("Utility class");}
 	
 	public static void pharmacyMedicinePersistence(SessioneFarmacia s) {
 		 List <FarmacoFarmacia> farmaci = null;
-		 Connection conn= connector.getConnection();
 		 Statement statement = null;
 		
 		 try {
@@ -51,7 +51,8 @@ public class FarmacoFarmaciaDAO {
 		    	List<Statement> statements = new ArrayList<>();
 	        	statements.add(statement);
  	
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
+	
 		    }
 	}
 	
@@ -59,9 +60,7 @@ public class FarmacoFarmaciaDAO {
 	public static List<FarmacoFarmacia>  myFarmaciFarmacia (String username) {
 		
 		Statement stmt = null;
-		
-		Connection conn= connector.getConnection();
-  
+	
 		List<FarmacoFarmacia> farmaci = null;
 	   
     
@@ -92,7 +91,7 @@ public class FarmacoFarmaciaDAO {
 	    	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
  	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
 	    }
 	    return farmaci;
 	}
@@ -103,8 +102,7 @@ public class FarmacoFarmaciaDAO {
 	
 	
 	
-	public static void deleteExpired(String farmaco, String possessore, String scadenza) {
-		 Connection conn= connector.getConnection();
+	public static void deleteExpired(String farmaco, String possessore, String scadenza) {	
 		 Statement stmt = null;
 		
 		 try {
@@ -125,7 +123,7 @@ public class FarmacoFarmaciaDAO {
 		    	List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmt);
 
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
 		    }
 	}
 	

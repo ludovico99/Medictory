@@ -9,10 +9,11 @@ import logic.model.SessioneCliente;
 import logic.model.SessioneFarmacia;
 
 public class ControllerLogout {
-
+	
 	public void makeDataClientPersistent(SessioneCliente s) {
 		EventoDAO.clientEventsPersistence(s);
 		FarmacoClienteDAO.clientMedicinePersistence(s);
+		
 	}
 	
 	public void makeDataPharmacyPersistent(SessioneFarmacia s) {

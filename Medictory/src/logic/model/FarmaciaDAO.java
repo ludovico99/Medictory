@@ -8,6 +8,7 @@ import logic.ingegnerizzazione.ConnectionClose;
 
 public class FarmaciaDAO {
 	private static Connector connector = Connector.getConnectorInstance();
+	private static Connection conn = connector.getConnection();
 	private static AbstractFactory factory = new FactoryElementoFarmacia();
 	
 	private FarmaciaDAO() {
@@ -19,7 +20,7 @@ public class FarmaciaDAO {
 		Statement stmt2 = null;
 		Statement stmt3 = null;
 		Statement stmt4 = null;
-		Connection conn= connector.getConnection();
+
         Farmacia f = null;
         
         try {
@@ -61,7 +62,7 @@ public class FarmaciaDAO {
         	statements.add(stmt3);
         	statements.add(stmt4);
         	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
         }
         return null;
 	}
@@ -69,7 +70,7 @@ public class FarmaciaDAO {
 	public static int disponibilitaFarmaco(String farmacia, String farmaco) {
 		
 		Statement stmt = null;
-		Connection conn= connector.getConnection();
+
 		int quantitativo = -1;
 		try {
         	
@@ -99,7 +100,7 @@ public class FarmaciaDAO {
         	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
     	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
         }
        
 		return quantitativo;
@@ -149,7 +150,7 @@ public class FarmaciaDAO {
         	List<Statement> statements = new ArrayList<>();
         	statements.add(stmt);
         	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
         }
         return f;
 	}
@@ -163,7 +164,7 @@ public class FarmaciaDAO {
 	public static List<Farmacia> tutteLeFarmacie() {
 		
 		Statement stmt = null;
-		Connection conn= connector.getConnection();
+	
         ArrayList<Farmacia> list = null;
         try { 
       
@@ -186,8 +187,8 @@ public class FarmaciaDAO {
     	   		} while(resF.next());
     	   	
     	   		resF.close();
-    	   		stmt.close();
-    	   		conn.close();
+    	   		
+    	   		
     	   	}
     	   	
        	} catch (Exception excFarmacia) {
@@ -196,7 +197,7 @@ public class FarmaciaDAO {
        		List<Statement> stmts= new ArrayList<>();
        		stmts.add(stmt);
 
-        	ConnectionClose.closeConnections(conn, stmts);
+        	ConnectionClose.closeStmts(stmts);
        	}
        return list;
 	}

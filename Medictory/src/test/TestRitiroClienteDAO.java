@@ -43,7 +43,6 @@ public class TestRitiroClienteDAO {
 			 
 			 statement3 = conn3.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			 statement3.executeUpdate(sql);
-			 statement3.close();
 			 
 			}  catch (Exception e3) {
 			     e3.printStackTrace();
@@ -52,7 +51,8 @@ public class TestRitiroClienteDAO {
 				   List<Statement> statements = new ArrayList<>();
 				   statements.add(statement3);
 	
-				   ConnectionClose.closeConnections(conn3, statements);
+				   ConnectionClose.closeStmts(statements);
+				  
 			     }		
 		} else {
 			ClienteDAO.creaUtenteCliente(USERNAMEC, "cliente3", "cliente3@gmail.com", USERNAMEF);
@@ -65,6 +65,8 @@ public class TestRitiroClienteDAO {
 		RitiroClienteDAO.creaRitiro(ritiro);
 		
 		List<RitiroCliente> ritiriEffettivi = RitiroClienteDAO.myRitiriCliente(USERNAMEC);
+		
+		ConnectionClose.closeConn(conn3);
 		
 		assertEquals(ritiriExpected.get(0).getNome(),ritiriEffettivi.get(0).getNome());
 	}

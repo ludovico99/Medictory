@@ -14,6 +14,8 @@ import logic.ingegnerizzazione.ConnectionClose;
 
 public class EventoDAO {
 	private static Connector connector = Connector.getConnectorInstance();
+	private static Connection conn = connector.getConnection();
+	
 	private static String descrizioneString = "descrizione";
 	private static String inizioString = "inizio";
 	private static String livelloRichiestoString = "livello richiesto";
@@ -26,7 +28,6 @@ public class EventoDAO {
 	
 	public static List<Cliente> findPartecipants( String vincitore , String organizzatore){
 		 List <Cliente> clienti = null;
-		 Connection conn= connector.getConnection();
 		 Statement stmt = null;
 		 
 		 try {
@@ -56,7 +57,7 @@ public class EventoDAO {
 			    	List<Statement> statements = new ArrayList<>();
 		        	statements.add(stmt);
         	
-		        	ConnectionClose.closeConnections(conn, statements);
+		        	ConnectionClose.closeStmts(statements);
 			    }
 		 return clienti;
 	}
@@ -64,7 +65,6 @@ public class EventoDAO {
 	
 	public static void pharmacyEventsPersistence (SessioneFarmacia s) {
 		 List <EventoFarmacia> eventi = null;
-		 Connection conn= connector.getConnection();
 		 Statement stmt = null;
 		 
 		 try {
@@ -112,13 +112,12 @@ public class EventoDAO {
 		    	List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmt);
 	        	
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
 		    }		
 	}
 		
 	public static void clientEventsPersistence(SessioneCliente s) {
 		 List <EventoCliente> eventi = null;
-		 Connection conn= connector.getConnection();
 		 Statement stmt = null;
 		 String farmaciaAssociata = null;
 		
@@ -148,14 +147,13 @@ public class EventoDAO {
 		    	List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmt);
 	            	
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
 		    }
 		  
 	}
 	
 	public static List<EventoFarmacia> allEventsFarmacia(String username){
 		 List <EventoFarmacia> eventi = null;
-		 Connection conn= connector.getConnection();
 		 Date oggi = new Date();
 		 Statement stmtEventiFarmacia = null;
 		
@@ -207,7 +205,7 @@ public class EventoDAO {
 	    	List<Statement> statements = new ArrayList<>();
         	statements.add(stmtEventiFarmacia);
         	
-        	ConnectionClose.closeConnections(conn, statements);
+        	ConnectionClose.closeStmts(statements);
 	    }
 	    return eventi;
 	}
@@ -215,7 +213,6 @@ public class EventoDAO {
 	
 	public static 	List<EventoCliente> allMyEvents(String username){
 		 List <EventoCliente> eventi = null;
-		 Connection conn= connector.getConnection();
 		 Date oggi = new Date();
 		 Statement stmtMyevents = null;
 		
@@ -257,7 +254,7 @@ public class EventoDAO {
 	     }finally {
 	    	 List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmtMyevents);
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
 	     }
 	     return eventi;
 	}
@@ -266,7 +263,6 @@ public class EventoDAO {
 		public static  List<EventoCliente> allActiveEvents(String farmacia) {
 			
 			Statement stmt = null;
-			Connection conn= connector.getConnection();
 			Date oggi = new Date();
 	       
 	        
@@ -318,7 +314,7 @@ public class EventoDAO {
 	        	List<Statement> statements = new ArrayList<>();
 	        	statements.add(stmt);
 	        	
-	        	ConnectionClose.closeConnections(conn, statements);
+	        	ConnectionClose.closeStmts(statements);
 	        }
 	        return eventi;
 		}	
