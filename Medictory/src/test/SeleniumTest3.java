@@ -21,6 +21,7 @@ import logic.model.Connector;
 public class SeleniumTest3 {
     private static final String ACTION = "arguments[0].click()";
     private static final String USERNAME = "username";
+    private static final String KEY = "elisa";
     private static final String PASSWORD = "password";
     private JavascriptExecutor jse;
     private WebElement ele;
@@ -40,9 +41,9 @@ public class SeleniumTest3 {
         //login
         driver.findElement(By.id("signInCustomer")).click();
         driver.findElement(By.name(USERNAME)).click();
-        driver.findElement(By.name(USERNAME)).sendKeys("elisa");
+        driver.findElement(By.name(USERNAME)).sendKeys(KEY);
         driver.findElement(By.name(PASSWORD)).click();
-        driver.findElement(By.name(PASSWORD)).sendKeys("elisa");
+        driver.findElement(By.name(PASSWORD)).sendKeys(KEY);
         driver.findElement(By.name("login")).click();
         
         //click su risorse
@@ -73,10 +74,10 @@ public class SeleniumTest3 {
         jse.executeScript(ACTION, ele);
         ele = driver.findElement(By.name(USERNAME));
         jse.executeScript(ACTION, ele);
-        driver.findElement(By.name(USERNAME)).sendKeys("elisa");
+        driver.findElement(By.name(USERNAME)).sendKeys(KEY);
         ele = driver.findElement(By.name(PASSWORD));
         jse.executeScript(ACTION, ele);
-        driver.findElement(By.name(PASSWORD)).sendKeys("elisa");
+        driver.findElement(By.name(PASSWORD)).sendKeys(KEY);
         ele = driver.findElement(By.name("login"));
         jse.executeScript(ACTION, ele);
         
