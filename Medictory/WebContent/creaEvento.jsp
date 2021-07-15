@@ -41,12 +41,8 @@
 				</jsp:forward>
 				
 				<%
-			}
-			
-		
-	}
- 
-  
+			}	
+	}  
   %>
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -78,16 +74,17 @@
             <div class="loading-mask"></div>
         </div>
         
-
+	
 	<div class="h2"><br>
      	Crea un nuovo evento per i tuoi clienti
-		<br><br>
+		<br>
 	</div>
-     <main class="site-wrapper">                    
+                  
+     <main class="site-wrapper"> 
 	<div class="container">
+	    
 		<form id="contact-form" action="#" method="post">
-		
-            <br>       
+	    
 			<br>
 			<input type="text" placeholder="Nome" name="nome">
 			<input type="text" placeholder="Dettagli" name="dettagli">
@@ -104,14 +101,14 @@
 			<span class="btn">
                 <button type="submit" class="btn btn-primary btn-custom-border text-uppercase" name="crea">Crea</button>
             </span>
-			<br>
 			
 		    </form>
-		
-		<br>    
+    
         <a href="PharmacyHomepage.jsp">Back</a> 
-		</div>
-			</main>
+        </div>
+        </main>
+		
+			
 		
         
         <!-- ================================

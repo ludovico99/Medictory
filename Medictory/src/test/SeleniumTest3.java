@@ -11,6 +11,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import logic.ingegnerizzazione.ConnectionClose;
+import logic.model.Connector;
  
 
  
@@ -37,9 +40,9 @@ public class SeleniumTest3 {
         //login
         driver.findElement(By.id("signInCustomer")).click();
         driver.findElement(By.name(USERNAME)).click();
-        driver.findElement(By.name(USERNAME)).sendKeys("lilla");
+        driver.findElement(By.name(USERNAME)).sendKeys("elisa");
         driver.findElement(By.name(PASSWORD)).click();
-        driver.findElement(By.name(PASSWORD)).sendKeys("ciao");
+        driver.findElement(By.name(PASSWORD)).sendKeys("elisa");
         driver.findElement(By.name("login")).click();
         
         //click su risorse
@@ -70,10 +73,10 @@ public class SeleniumTest3 {
         jse.executeScript(ACTION, ele);
         ele = driver.findElement(By.name(USERNAME));
         jse.executeScript(ACTION, ele);
-        driver.findElement(By.name(USERNAME)).sendKeys("lilla");
+        driver.findElement(By.name(USERNAME)).sendKeys("elisa");
         ele = driver.findElement(By.name(PASSWORD));
         jse.executeScript(ACTION, ele);
-        driver.findElement(By.name(PASSWORD)).sendKeys("ciao");
+        driver.findElement(By.name(PASSWORD)).sendKeys("elisa");
         ele = driver.findElement(By.name("login"));
         jse.executeScript(ACTION, ele);
         
@@ -99,6 +102,9 @@ public class SeleniumTest3 {
         expected.add("aaa");
         expected.add("1");
         expected.add("2025-08-01");
+        
+      
+       ConnectionClose.closeConn( Connector.getConnectorInstance().getConnection());
         
         assertEquals(expected, actual);
     }

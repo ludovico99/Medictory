@@ -58,7 +58,7 @@
         ["xpath=//div[@id='container']/div[2]/form/input", "xpath:idRelative"],
         ["xpath=//div[2]/form/input", "xpath:position"]
       ],
-      "value": "keska"
+      "value": "myfarma"
     }, {
       "id": "fb34a1be-35f2-47f9-bb96-fcc44c2f6fff",
       "comment": "",
@@ -84,7 +84,7 @@
         ["xpath=//div[@id='container']/div[2]/form/input[2]", "xpath:idRelative"],
         ["xpath=//div[2]/form/input[2]", "xpath:position"]
       ],
-      "value": "keska"
+      "value": "myfarma"
     }, {
       "id": "81c60995-c1bd-445f-868c-ebcc822cb65c",
       "comment": "",

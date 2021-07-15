@@ -9,6 +9,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import logic.ingegnerizzazione.ConnectionClose;
+import logic.model.Connector;
+
 
 
 public class SeleniumTest2 {
@@ -27,16 +30,13 @@ public void medictoryTest2() {
 	 jse = (JavascriptExecutor)driver;
 	
 	 driver.findElement(By.id("signIn")).click();
-	 click(driver, "username", "keska");
+	 click(driver, "username", "myfarma");
 	
-	 click(driver, "password", "keska");
+	 click(driver, "password", "myfarma");
 	 
 	 driver.findElement(By.name("login")).click();
 	 driver.findElement(By.cssSelector(".hexagon-item:nth-child(3) .hex-content-inner")).click();
 	
-	
-	 
-	 
 	 ele = driver.findElement(By.name("nome"));
 	 jse.executeScript(ACTION, ele);
 	 driver.findElement(By.name("nome")).sendKeys("Nuovo Evento");
@@ -68,6 +68,8 @@ public void medictoryTest2() {
 	 
 	 ele = driver.findElement(By.name("crea"));
 	 jse.executeScript(ACTION, ele);
+	 
+	 ConnectionClose.closeConn( Connector.getConnectorInstance().getConnection()); // chiudo la connessione 
 	 
 	 assertEquals(driver.findElement(By.cssSelector("h2")).getText(), "Non puoi inserire un evento iniziato");
 	}
