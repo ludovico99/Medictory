@@ -1,175 +1,0 @@
-.e1_55 { 
-	background-color:rgba(255, 255, 255, 1);
-	width:1440px;
-	height:1024px;
-	position:absolute;
-	overflow:hidden;
-}.e1_89 { 
-	transform: rotate(90.00000000000003deg);
-	width:890px;
-	height:1104px;
-	position:absolute;
-	left:465px;
-	
-	background-image:url(images/sfondo_farmaciapp.jpg);
-	background-repeat:no-repeat;
-	background-size:cover;
-}
-}.e1_105 { 
-	background-color:rgba(255, 255, 255, 1);
-	width:522px;
-	height:52px;
-	position:absolute;
-	left:720px;
-	top:327px;
-border:2px solid rgba(0, 0, 0, 0.25);
-}.e_800{position: absolute;width: 846px;height: 625px;left: 450px;top: 300px;background: #FFFFFF;border: 2px solid rgba(0, 0, 0, 0.25);box-sizing: border-box;}.e_4{position: absolute;width: 500px;height: 61px;left: 675px;top: 600px;font-family: Montserrat;font-style: normal;font-size: 24px;line-height: 36px;color: #000000;}.e1_95 { 
-	background-color:rgba(213.06444704532623, 213.06444704532623, 213.06444704532623, 1);
-	width:204px;
-	height:56px;
-	position:absolute;
-	left:989px;
-	top:798px;
-	border-top-left-radius:20px;
-	border-top-right-radius:20px;
-	border-bottom-left-radius:20px;
-	border-bottom-right-radius:20px;
-}.e1_95:hover{	background-color:#A9A9A9;}.e1_94 { 
-	color:rgba(0, 0, 0, 1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:413px;
-	top:735px;
-	font-family:Libre Franklin;
-	text-align:left;
-	font-size:24px;
-	letter-spacing:0;
-}.e1_66 { 
-	color:rgba(0, 0, 0, 1);
-	width:755px;
-	height:49px;
-	position:absolute;
-	left:593px;
-	top:200px;
-	font-family:Montserrat;
-	text-align:left;
-	font-size:64px;
-	letter-spacing:0;
-}.e1_79 { 
-	color:rgba(0, 0, 0, 1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:413px;
-	top:347px;
-	font-family:Libre Franklin;
-	text-align:left;
-	font-size:24px;
-	letter-spacing:0;
-}.e1_90 { 
-	color:rgba(0, 0, 0, 1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:413px;
-	top:421px;
-	font-family:Libre Franklin;
-	text-align:left;
-	font-size:24px;
-	letter-spacing:0;
-}.e1_91 { 
-	color:rgba(0, 0, 0, 1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:413px;
-	top:493px;
-	font-family:Libre Franklin;
-	text-align:left;
-	font-size:24px;
-	letter-spacing:0;
-}.e1_92 { 
-	color:rgba(0, 0, 0, 1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:413px;
-	top:571px;
-	font-family:Libre Franklin;
-	text-align:left;
-	font-size:24px;
-	letter-spacing:0;
-}.e1_93 { 
-	color:rgba(0, 0, 0, 1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:413px;
-	top:659px;
-	font-family:Libre Franklin;
-	text-align:left;
-	font-size:24px;
-	letter-spacing:0;
-}.e1_84 { 
-	background-color:rgba(213.06444704532623, 213.06444704532623, 213.06444704532623, 1);
-	width:204px;
-	height:56px;
-	position:absolute;
-	left:755px;
-	top:798px;
-	border-top-left-radius:20px;
-	border-top-right-radius:20px;
-	border-bottom-left-radius:20px;
-	border-bottom-right-radius:20px;
-}.e1_84:hover{	background-color:#A9A9A9;}.e1_85 { 
-	color:rgba(0, 0, 0,1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:1037px;
-	top:809px;
-	font-family:Montserrat;
-	text-align:left;
-	font-size:26px;
-	letter-spacing:0;text-decoration: none;
-}.e1_86 { 
-	color:rgba(0, 0, 0, 1);
-	width:360px;
-	height:61px;
-	position:absolute;
-	left:809px;
-	top:809px;
-	font-family:Montserrat;
-	text-align:left;
-	font-size:26px;
-	letter-spacing:0;text-decoration: none;
-}.e16_12 { 
-	width:296px;
-	height:1024px;
-	position:absolute;
-	left:0px;
-	top:0px;
-	background-image:url(images/rectangle_26.png);
-	background-repeat:no-repeat;
-	background-size:cover;
-}.e16_13 { 
-	position: absolute;
-width: 300px;
-height: 75px;
-left: 0px;
-top: 400px;
-
-background: rgba(255, 255, 255, 0.25);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-}.e16_14 { 
-	position: absolute;width: 276px;height: 54px;left: 84px;top: 366px;font-family: Montserrat;font-style: normal;font-weight: normal;font-size: 36px;line-height: 44px;color: #FFFFFF;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}.e16_15 { 
-	position: absolute;width: 236px;height: 54px;left: 91px;top: 283px;font-family: Montserrat;font-style: normal;font-weight: normal;font-size: 36px;line-height: 44px;color: #FFFFFF;text-decoration: none;
-}.e16_16 { 
-	text-decoration: none;
-}.e16_17 { 
-	position: absolute;width: 236px;height: 54px;left: 84px;top: 527px;font-family: Montserrat;font-style: normal;font-weight: normal;font-size: 36px;line-height: 44px;color: #FFFFFF;text-decoration: none;
-}.e16_18 { 
-	position: absolute;width: 236px;height: 54px;left: 91px;top: 450px;font-family: Montserrat;font-style: normal;font-weight: normal;font-size: 36px;line-height: 44px;color: #FFFFFF;border: 1px solid #FFFFFF;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);text-decoration: none;
-}.e300{position: absolute;width: 236px;height: 54px;left: 91px;top: 680px;font-family: Montserrat;font-style: normal;font-weight: normal;font-size: 36px;line-height: 44px;color: #FFFFFF;text-decoration: none;}.e16_21 { 	color:rgba(255, 255, 255, 1);	width:276px;	height:54px;	position:absolute;	left:57px;	top:340px;	font-family:Montserrat;	text-align:left;	font-size:36px;	letter-spacing:0;text-decoration: none;}.e16_22 { 	color:rgba(255, 255, 255, 1);	width:236px;	height:54px;	position:absolute;	left:57px;	top:260px;	font-family:Montserrat;	text-align:left;	font-size:36px;	letter-spacing:0;text-decoration: none;}.e16_23 { 	color:rgba(255, 255, 255, 1);	width:236px;	height:54px;	position:absolute;	left:57px;	top:578px;	font-family:Montserrat;	text-align:left;	font-size:36px;	letter-spacing:0;text-decoration: none;}.e16_24 { 	color:rgba(255, 255, 255, 1);	width:236px;	height:54px;	position:absolute;	left:57px;	top:503px;	font-family:Montserrat;	text-align:left;	font-size:36px;	letter-spacing:0;text-decoration: none;}.e16_25 { 	color:rgba(255, 255, 255, 1);	width:236px;	height:54px;	position:absolute;	left:57px;	top:420px;	font-family:Montserrat;font-weight: 700;	text-align:left;	font-size:36px;	letter-spacing:0;text-decoration: none;}.e900{position: absolute;width: 236px;height: 54px;left: 57px;top: 650px;font-family: Montserrat;font-style: normal;font-weight: normal;font-size: 36px;line-height: 44px;color: #FFFFFF;text-decoration: none;}
