@@ -87,7 +87,7 @@ public class ControllerPharmacyGestione implements Runnable {
 	public void run() {
 		Premiazione p;
 		p = new PremioPassaggioDiLivello(clienteAttuale, emailCliente);
-		new Coupon(p);
+		new Coupon(p).premia();
 		
 	}
 	
